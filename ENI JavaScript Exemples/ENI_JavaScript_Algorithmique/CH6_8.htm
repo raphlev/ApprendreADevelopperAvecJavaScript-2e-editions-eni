@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH6_8.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Soit un tableau de chaînes de caractères (5 cases) contenant 5 prénoms (considérer que la saisie est déjà réalisée).
+Ecrire un algorithme qui permettra la saisie au clavier d’un prénom (présent si possible dans le tableau)
+et qui le supprimera du tableau (décalage des prénoms suivants d'une case vers la gauche pour laisser la case n°5 vide).
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH6_8></title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH6_8</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+			
+			/* Affichage du nom du script */
+			alert("Exercice CH6_8");
+
+			/* Déclaration de variables locales */
+			var prenoms = new Array;
+			var prenom_supprime, compteur1, compteur2;
+
+			/* Initialisation du tableau prenoms */
+			prenoms[1] = "Pierre";
+			prenoms[2] = "Paul";
+			prenoms[3] = "Monique";
+			prenoms[4] = "Jacques";
+			prenoms[5] = "Lucie";
+
+			/* Saisie du prénom à supprimer */
+			prenom_supprime = prompt("Prénom à supprimer :");
+
+			/* Recherche du prénom dans le tableau prenoms */
+			compteur1 = 1;
+			while (prenoms[compteur1] != prenom_supprime && compteur1 != 6) {
+				compteur1 = compteur1 + 1;
+			}
+
+			/* Décalage vers la gauche */
+			if (compteur1 < 5) {
+				for ( compteur2 = compteur1; compteur2 <= 4; compteur2++) {
+					prenoms[compteur2] = prenoms[compteur2 + 1];
+				}
+			}
+			prenoms[5] = "";
+
+			/* Affichage du résultat */
+			for (compteur1 = 1; compteur1 <= 5; compteur1++) {
+				document.write("prenoms[" + compteur1 + "] : " + prenoms[compteur1] + "<br />");
+			}
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

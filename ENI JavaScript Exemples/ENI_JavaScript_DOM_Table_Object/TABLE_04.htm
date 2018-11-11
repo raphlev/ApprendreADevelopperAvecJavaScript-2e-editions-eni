@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : TABLE_04.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>TABLE_04</title>
+
+		<!-- Début script JavaScript -->
+		
+		<script type='text/javascript'>
+		
+			/* Fonction ajouterLigneDebutTableau */
+			function ajouterLigneDebutTableau() {
+				/*
+				Ajout d'une ligne vide en position 1 (sous le titre)
+				*/
+				var tabLigne = document.getElementById('monTableau').insertRow(1);
+
+				/*
+				Ajout d'une colonne 0 (Modèle) dans la ligne créée
+				et stockage d'une valeur
+				*/
+				var colonne0 = tabLigne.insertCell(0);
+				colonne0.innerHTML = "Ferrari F40";
+
+				/*
+				Ajout d'une colonne 1 (Puissance) dans la ligne créée
+				et stockage d'une valeur
+				*/
+				var colonne1 = tabLigne.insertCell(1);
+				colonne1.innerHTML = "478";
+			}
+
+			/* Fonction ajouterLigneFinTableau */
+			function ajouterLigneFinTableau() {
+				/*
+				Affichage du nombre de lignes du tableau
+				*/
+				var nombreLignes = parseInt(document.getElementById('monTableau').rows.length);
+				/* alert("Nombre de ligne(s) du tableau : " + nombreLignes); */
+
+				/*
+				Ajout d'une ligne vide après la dernière ligne
+				actuelle du tableau
+				*/
+				var tabLigne = document.getElementById('monTableau').insertRow(nombreLignes);
+
+				/*
+				Ajout d'une colonne 0 (Modèle) dans la lignee créée
+				et stockage d'une valeur
+				*/
+				var colonne0 = tabLigne.insertCell(0);
+				colonne0.innerHTML = "Porsche 959";
+
+				/*
+				Ajout d'une colonne 1 (Puissance) dans la ligne créée
+				et stockage d'une valeur
+				*/
+				var colonne1 = tabLigne.insertCell(1);
+				colonne1.innerHTML = "450";
+			}
+
+			/* Fonction supprimerLigneTableau */
+			function supprimerLigneTableau() {
+				/*
+				Affichage de contrôle du numéro de la ligne à supprimer
+				dans le tableau
+				*/
+				var numeroLigne = parseInt(document.getElementById('numLigne').value);
+				/* alert("N° de ligne à supprimer : " + numeroLigne); */
+				/*
+				Affichage du nombre de lignes du tableau
+				*/
+				var nombreLignes = parseInt(document.getElementById('monTableau').rows.length);
+				/* alert("Nombre de ligne(s) du tableau : " + nombreLignes); */
+				/*
+				Suppression de la ligne
+				*/
+				if ((numeroLigne >= 1) && (numeroLigne < nombreLignes)) {
+					/* Suppression */
+					document.getElementById('monTableau').deleteRow(numeroLigne);
+				} else {
+					/* N° de ligne erroné */
+					alert("N° de ligne erroné");
+				}
+			}
+
+		</script>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - TABLE_04</h1>
+
+		<!-- Début script JavaScript -->
+		<script type='text/javascript'>
+		
+			/* Affichage du nom du script */
+			alert("TABLE_04");
+
+		</script>
+
+		<!-- Tableau HTML -->
+		<table id="monTableau" border="1" cellspacing="1" cellpadding="1">
+			<!-- Définition de la ligne n°0 du tableau (titre) -->
+			<tr>
+				<td>Modèle</td>
+				<td>Puissance</td>
+			</tr>
+			<!-- Définition de la ligne n°1 du tableau -->
+			<tr>
+				<td>Ferrari 512 BB</td>
+				<td>380</td>
+			</tr>
+			<!-- Définition de la ligne n°2 du tableau -->
+			<tr>
+				<td>Lamborghini Miura</td>
+				<td>385</td>
+			</tr>
+			<!-- Définition de la ligne n°3 du tableau -->
+			<tr>
+				<td>Porsche 964 3.6</td>
+				<td>360</td>
+			</tr>
+		</table>
+
+		<!-- Formulaire d'ajout en première ligne ou en dernière ligne -->
+		<br />
+		<hr>
+		<br />
+		Ajout de lignes
+		<br>
+		<br />
+		<form name="formulaireAjout">
+			<input
+			type="button"
+			id="boutonAjouterLigneDebutTableau"
+			value="Ajout d'une ligne (début de tableau)"
+			onclick="ajouterLigneDebutTableau()"
+			/>
+			<br />
+			<br />
+			<input
+			type="button"
+			id="boutonAjouterLigneFinTableau"
+			value="Ajout d'une ligne (fin de tableau)"
+			onclick="ajouterLigneFinTableau()"
+			/>
+			<br />
+		</form>
+
+		<!-- Formulaire de suppression de lignes -->
+		<br />
+		<hr>
+		<br />
+		Suppression de lignes
+		<br>
+		<br />
+		<form name="formulaireSuppression">
+			N° de ligne à supprimer (n° à partir de 1) :
+			<input
+			type="txt"
+			id="numLigne"
+			value=""
+			/>
+			<br />
+			<br />
+			<input
+			type="button"
+			id="boutonSupprimerLigneTableau"
+			value="Supression d'une ligne"
+			onclick="supprimerLigneTableau()"
+			/>
+		</form>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

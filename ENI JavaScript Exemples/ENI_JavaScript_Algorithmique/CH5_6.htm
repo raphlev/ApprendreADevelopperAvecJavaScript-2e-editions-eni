@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH5_6.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Calculer le PGCD de n couplets d'entiers (> 0) (Méthode de la division)
+NB : La saisie sera terminée par la frappe de -1 pour le premier élément du couplet, c'est-à-dire a.
+Exemple :
+a : 21
+b : 7
+PGCD : 7
+
+a : 372
+b : 226
+PGCD : 2
+
+a : 127
+b : 28
+PGCD : 1
+
+a : -1
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH5_6</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH5_6</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("Exercice CH5_6");
+
+			/* Déclaration de variables locales */
+			var a, b, c, d, reste;
+
+			/*
+			Boucles de traitement
+			*/
+
+			/*
+			Boucle des couplets
+			*/
+			/* Saisie du premier nombre */
+			a = prompt("Premier nombre (-1 si fin) :");
+			c = a;
+			while (a != -1) {
+				/* Saisie du deuxième nombre */
+				b = prompt("Deuxième nombre :");
+				d = b;
+				/*
+				 Boucle du calcul du PGCD
+				 */
+				/* Détermination du reste */
+				reste = a % b;
+				while (reste != 0) {
+					/* Remplacement de a par b et de b par le reste */
+					a = b;
+					b = reste;
+					/* Détermination du reste */
+					reste = a % b;
+				}
+				/* Affichage du résultat */
+				document.write("PGCD de " + c + " et " + d + " : " + b + "<br /><br />");
+				/* Saisie du premier nombre */
+				a = prompt("Premier nombre (-1 si fin) :");
+				c = a;
+			}
+
+			/* Fin de traitement */
+			document.write("Travail terminé");
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

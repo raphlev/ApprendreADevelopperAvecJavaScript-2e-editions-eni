@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : poo_07.htm
+Auteur : Christian VIGOUROUX
+Date de création : 19/04/2016
+Date de dernière modification : 19/4/2016
+Objet : POO en EcmaScript 6 (getter, setter et méthode statique)
+-->
+
+<!-- Balise HTML -->
+<html>
+
+  <!-- Section HEAD -->
+  <head>
+    <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  </head>
+
+  <!-- Section BODY -->
+  <body>
+
+    <!-- Utilisation de la police de caractères Arial -->
+    <font face="Arial">
+
+      <!-- Affichage du titre du script -->
+      <h3>EcmaScript 6 : POO (getter, setter et méthode statique) - Script poo_07.htm</h3>
+
+      <!-- Script JavaScript -->
+      <script>
+
+        // Définition d'une classe Voiture
+        class Voiture {
+
+          // Méthode constructeur
+          constructor(marque, modele, pays) {
+            this.marque = marque;
+            this.modele = modele;
+            this.pays = pays;
+          }
+
+          // Méthode de type getter (accès à la valeur de l'attribut marque)
+          get getMarque() {
+            // Retour de la marque
+            return this.marque;
+          }
+
+          // Méthode de type getter (accès à la valeur de l'attribut modele)
+          get getModele() {
+            // Retour du modèle
+            return this.modele;
+          }
+
+          // Méthode de type getter (accès à la valeur de l'attribut pays)
+          get getPays() {
+            // Retour du pays
+            return this.pays;
+          }
+          
+          // Méthode de type setter (modification de l'attribut modele)
+          set setModele(value) {
+            this.modele = value;
+          }
+
+          // Méthode statique comptant le nombre d'objets créés 
+          // par l'intermédiaire de cette classe
+          static getNombreVoitures() {
+            if(!this.compteurVoitures && this.compteurVoitures !== 0) {
+              // Initialisation du compteur d'objets instanciés
+              // (s'il n'existe pas déjà)
+              this.compteurVoitures = 0;
+            }
+            else {
+              // Incrémentation du nombre d'objets instanciés
+              this.compteurVoitures++;
+            }
+            // Valeur de retour
+            return this.compteurVoitures + 1;
+          }
+
+        }
+
+        // Instanciation d'un objet porsche911 de la classe Voiture
+        // et affichage du nombre d'objets instanciés
+        let porsche911 = new Voiture("Porsche", "911", "Allemagne");
+        document.write("Marque : " + porsche911.getMarque + "<br />");
+        document.write("Modèle : " + porsche911.getModele + "<br />");
+        document.write("Pays : " + porsche911.getPays + "<br />");
+        document.write("Nombre de voitures instanciées : "
+                       + Voiture.getNombreVoitures() + "<br />");
+
+        // Modification de l'objet porsche911
+        porsche911.setModele = "911 Turbo";        
+        document.write("Modèle (après modification) : "
+                       + porsche911.getModele + "<br /><br />");
+
+        // Instanciation d'un objet testarossa de la classe Voiture
+        // et affichage du nombre d'objets instanciés
+        let testarossa = new Voiture("Ferrari", "Testarossa", "Italie");
+        document.write("Marque : " + testarossa.getMarque + "<br />");
+        document.write("Modèle : " + testarossa.getModele + "<br />");
+        document.write("Pays : " + testarossa.getPays + "<br />");
+        document.write("Nombre de voitures instanciées : "
+                       + Voiture.getNombreVoitures() + "<br /><br />");
+
+      </script>
+
+    </font>
+
+  </body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : WINDOW_03.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Gestion d'un timer
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>WINDOW_03</title>
+
+		<!-- Début script JavaScript -->
+		<script type="text/javascript">
+			
+			/* Fonction ouvrirFenetre */
+			function ouvrirFenetre(URL)
+			{
+				/* Ouverture de la fenêtre */
+				maFenetre = window.open(
+				URL,
+				"FENETRE",
+				"width=400,
+				height=200,
+				location=1,
+				titlebar=yes,
+				resizable=yes"
+			);
+
+			/* Temporisation de la fermeture de la fenêtre
+			(10 secondes d'affichage)
+			*/
+				timeout = setTimeout("fermerFenetre()", 10000);
+			}
+
+			/* Fonction fermerFenetre */
+			function fermerFenetre()
+			{
+				maFenetre.close();
+			}
+			
+		</script>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - WINDOW_03</h1>
+
+		<!-- Début script JavaScript -->
+		<script type="text/javascript">
+		
+			/* Affichage du nom du script */
+			alert("WINDOW_03");
+
+		</script>
+
+		<!-- Formulaire -->
+		<form>
+			Ouverture d'une fenêtre avec passage de l'URL en paramètre</br>
+			<input
+				type="button"
+				value="Ouverture d'une fenêtre yahoo.fr (pendant 10 secondes)"
+				onclick="ouvrirFenetre('http://www.yahoo.fr')"
+			/>
+		</form>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

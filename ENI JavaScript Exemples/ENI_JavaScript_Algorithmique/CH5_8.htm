@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH5_8.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Ecrire l’algorithme permettant la saisie de la réponse à la question "Aimez-vous l’informatique (O/N) ?"
+avec un affichage d’un message d’erreur en cas de mauvaise réponse (renouvellement de la question jusqu'à ce que la réponse soit "O" ou "N").
+Utilisez pour ce traitement la structure itérative while et différencier les deux cas par un test après la sortie de l’itération.
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH5_8</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH5_8</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("Exercice CH5_8");
+
+			/* Déclaration de variables locales */
+			var reponse;
+
+			/*
+			Boucle de contrôle de saisie
+			*/
+			/* Saise de la réponse */
+			reponse = prompt("Aimez-vous l’informatique (O/N) ? :");
+			while (reponse != "O" && reponse != "N") {
+				/* Message d'erreur */
+				alert("Saisissez O ou N");
+				/* Resaisie de la réponse */
+				reponse = prompt("Aimez-vous l’informatique (O/N) ? :");
+			}
+
+			/* Différenciation des sorties */
+			if (reponse == "O") {
+				document.write("Vous aimez l'informatique");
+			} else {
+				document.write("Vous n'aimez pas l'informatique");
+			}
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

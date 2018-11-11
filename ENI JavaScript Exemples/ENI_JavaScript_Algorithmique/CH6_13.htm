@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH6_13.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Le LOTO effectue un tirage toutes les semaines (52 fois par an).
+Chaque semaine 6 numéros (1 à 49) sont tirés.
+On stockera (par saisie à partir du clavier) dans un tableau à deux dimensions (52 lignes et 6 colonnes) les résultats tirés.
+Il vous est demandé ensuite d’annoncer à l’écran en fin d’année la fréquence de tirage de chaque numéro.
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH6_13</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH6_13</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("Exercice CH6_13");
+
+			/* Déclaration de variables locales */
+			var loto = new Array(52, 6);
+			var freq = new Array(50);
+			var cpt_semaines, cpt_boules, cpt_freq;
+			var tirage;
+
+			/* Initialisation du tableau des fréquences */
+			for (cpt_freq = 1; cpt_freq <= 49; cpt_freq++) {
+				freq[cpt_freq] = 0;
+			}
+
+			/* Initialisation du tableau loto et calcul des féquences */
+			for (cpt_semaines = 0; cpt_semaines < 52; cpt_semaines++) {
+				for (cpt_boules = 0; cpt_boules < 6; cpt_boules++) {
+					tirage = Math.floor(Math.random() * 49) + 1;
+					document.write("Tirage : " + tirage + "<br />");
+					loto[cpt_semaines, cpt_boules] = tirage;
+					freq[tirage] = freq[tirage] + 1;
+				}
+			}
+
+			/* Affichages des fréquences */
+			for (cpt_freq = 1; cpt_freq <= 49; cpt_freq++) {
+				document.write("Boule n° " + cpt_freq + " tirée " + freq[cpt_freq] + " fois<br/>");
+			}
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

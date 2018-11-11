@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : Mini_Tableur.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Soit le tableau tb à 2 dimensions comportant 4 lignes et 5 colonnes. Réaliser les traitements suivants :
+- Saisir au clavier des valeurs dans les 3 premières lignes et les 4 premières colonnes
+(on conserve la dernière ligne et la dernière colonne libres pour des sommations de lignes et de colonnes)
+- Sommer les colonnes en dernière ligne et les lignes en dernière colonne
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>Mini_Tableur</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice Mini_Tableur</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+			
+			/* Affichage du nom du script */
+			alert("Exercice Mini_Tableur");
+
+			/* Déclaration de variables locales */
+			var tb = new Array(5);
+			var numLigne, numColonne;
+			var valeur;
+
+			/* Déclaration de 5 "colonnes" par "ligne" pour le tableau tb */
+			for (var numLigne = 1; numLigne < tb.length; numLigne++) {
+				/* Création des "colonnes" (numérotées de 0 à 5) */
+				tb[numLigne] = new Array(6);
+			}
+
+			/* Initialisation à zéro du tableau tb */
+			valeur = 1;
+			for (numLigne = 1; numLigne <= 3; numLigne++) {
+				for ( numColonne = 1; numColonne <= 4; numColonne++) {
+					tb[numLigne][numColonne] = valeur;
+					valeur = valeur + 1;
+				}
+			}
+
+			/* Mise à zéro des totaux en ligne n°4 */
+			for (numColonne = 1; numColonne <= 5; numColonne++) {
+				tb[4][numColonne] = 0;
+			}
+
+			/* Mise à zéro des totaux en colonne n°5 */
+			for (numLigne = 1; numLigne <= 4; numLigne++) {
+				tb[numLigne][5] = 0;
+			}
+
+			/* Détermination des totaux en ligne n°4 et en colonne n°5 */
+			for (numLigne = 1; numLigne <= 3; numLigne++) {
+				for (numColonne = 1; numColonne <= 4; numColonne++) {
+					/* Totalisation en ligne n°4 */
+					tb[4][numColonne] = tb[4][numColonne] + tb[numLigne][numColonne];
+					/* Totalisation en colonne n°5 */
+					tb[numLigne][5] = tb[numLigne][5] + tb[numLigne][numColonne];
+					/* Totalisation générale en ligne n°4-colonne n°5 */
+					tb[4][5] = tb[4][5] + tb[numLigne][numColonne];
+				}
+			}
+
+			/* Affichage du total général */
+			document.write("Total général en tb[4][5] = " + tb[4][5]);
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

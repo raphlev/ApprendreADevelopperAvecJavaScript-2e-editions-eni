@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : JSON_05.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Utilisation de JSON
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type"
+		content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>JSON_05</title>
+
+		<!-- Début script JavaScript -->
+		<script type="text/javascript">
+		
+			/* Fonction testant si un choix a été fait
+			dans la liste déroulante */
+			function controlerChoixListe(liste, messageAlerte) {
+				if (liste.value == "CODE") {
+					/* Affichage d'un message d'alerte */
+					alert(messageAlerte);
+					/* Focus sur le champ en erreur */
+					liste.focus();
+					/* Valeur de retour */
+					return false;
+				} else {
+					/* Appel de la fonction ajaxJSON */
+					ajaxJSON();
+					/* Valeur de retour */
+					return true;
+				}
+			}
+
+			/* Fonction ajaxJSON */
+			function ajaxJSON() {
+
+				/* Association de la variable resultat à la division
+				d'affichage divisionResultat */
+				var resultat = document.getElementById("divisionResultat");
+
+				/* Instanciation d'un objet de type XMLHttpRequest
+				/* NB : XMLHttpRequest est un objet ActiveX
+				ou JavaScript qui permet d'obtenir des données
+				au format XML, JSON, mais aussi HTML ou encore texte
+				simple à l'aide de requêtes HTTP. */
+				if (window.XMLHttpRequest) {
+					// Code pour IE7+, Firefox, Chrome, Opera, Safari
+					httpRequest = new XMLHttpRequest();
+				} else {
+					// Code pour IE6, IE5
+					httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+
+				/* Ouverture du fichier voitures.json
+				via le script PHP serveurJSON.php*/
+				/* true : mode asynchrone -> le flux doit être disponible
+				entièrement avant son traitement */
+				httpRequest.open("POST", "serveurJSON.php", true);
+
+				/* Définition du type de flux vers le serveur */
+				httpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				/* NB1 : application/x-www-form-urlencoded
+				est la valeur à retenir pour l'envoi de paramètres
+				depuis un formulaire HTML
+				(liste déroulante dans notre cas) */
+				/* NB2 : Les valeurs seront encodées
+				(remplacement des espaces à titre d'exemple par %20)
+				Cf http://assiste.com.free.fr/p/faq_webmaster/HTML_ASCII_Escape_codes_H2_%20!$%25&%27%28%29+,-..html */
+
+				/* Traitement effectué dès que le flux est disponible */
+				httpRequest.onreadystatechange = function() {
+					/* Test si requête terminée et test status OK */
+					if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+						/* Affichage de contrôle */
+						alert("responseText : " + httpRequest.responseText);
+						/* Conversion du flux JSON en objets Javascript */
+						var donneesJSON = JSON.parse(httpRequest.responseText);
+						/* Initialisation de la variable resultat */
+						resultat.innerHTML = "";
+						/* Parcours des objets Javascript */
+						for (var objet in donneesJSON) {
+							/* Concaténation du résultat */
+							resultat.innerHTML += "Code voiture : " + donneesJSON[objet].code_voiture + "<br />";
+
+							resultat.innerHTML += "Libellé : " + donneesJSON[objet].libelle_voiture + "<br />";
+
+							resultat.innerHTML += "Vitesse maximale : " + donneesJSON[objet].vitesse_maximale_voiture + "<hr />";
+						}
+					}
+				}
+				/* Envoi de données au travers de la requête
+				XMLHttpRequest au script PHP serveurJSON.php */
+				var parametre = 'code=';
+				parametre += document.getElementById('liste').value;
+				// alert("Paramètre : " + parametre);
+				httpRequest.send(parametre);
+
+				/* Message affiché en attente du traitement */
+				/* (récupération des données
+				depuis la table MySQL voitures) */
+				resultat.innerHTML = "Attente de traitement JSON ...";
+
+			}
+
+		</script>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - JSON_05</h1>
+
+		<!-- Début script JavaScript -->
+		<script type="text/javascript">
+			
+			/* Affichage du nom du script */
+			alert("JSON_05");
+
+		</script>
+
+		<!-- Formulaire de saisie du code de la voiture à interroger -->
+		<form name="formulaire">
+			<!-- Liste déroulante des choix -->
+			Code de la voiture :
+			<select
+			id="liste"
+			onchange="controlerChoixListe(document.getElementById('liste'), 'Veuillez choisir un code')">
+				<option	value="CODE" selected> Code voiture </option>
+				<option value="V001"> V001 </option>
+				<option value="V002"> V002 </option>
+				<option	value="V003"> V003 </option>
+			</select>
+		</form>
+
+		<!-- Division d'affichage du résultat -->
+		<div id="divisionResultat"></div>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

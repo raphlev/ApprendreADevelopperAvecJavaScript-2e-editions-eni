@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH5_1_V2.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Calculer la moyenne de n nombres réels lus au clavier (suite terminée par un zéro)
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH5_1_V2</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH5_1_V2</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("Exercice CH5_1_V2");
+
+			/* Déclaration de variables locales */
+			var nblu, cpt, somme, moyenne;
+
+			/* Initialisations */
+			cpt = 1;
+			somme = 0.0;
+
+			/* Saisie d'un premier nombre */
+			nblu = parseFloat(prompt("Nombre (0 pour finir) : "));
+
+			/* Boucle de traitement */
+			while (nblu != 0) {
+				somme = somme + parseFloat(nblu);
+				nblu = parseFloat(prompt("Nombre (0 pour finir) : "));
+				cpt = cpt + 1;
+			}
+
+			/* Affichage du résultat */
+			if (cpt == 1) {
+				document.write("Aucun nombre n'a été saisi");
+			} else {
+				moyenne = somme / (cpt - 1);
+				document.write("Moyenne : " + moyenne);
+			}
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

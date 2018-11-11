@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH5_13.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Déterminer l'emplacement d'un nombre (lu au clavier) dans une liste de nombres
+lue au clavier (liste croissante strictement et terminée par un zéro si besoin)
+Exemples :
+(Nombre cherché) + Liste
+(2) 3 5 6 7 8 0 donne Hors Liste à Gauche
+(8) 1 3 5 7 0 donne Hors Liste à Droite
+(4) 1 3 4 6 8 0 donne Pile dans la liste
+(5) 1 3 4 7 0 donne Intercalé dans la liste
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH5_13</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH5_13</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("Exercice CH5_13");
+
+			/* Déclaration de variables locales */
+			var nbcherch, nblu, nbluancien;
+
+			/* Initialisations */
+			nbcherch = prompt("Nombre à chercher :");
+			nblu = prompt("Nombre de la suite :");
+			nbcherch = parseInt(nbcherch);
+			nblu = parseInt(nblu);
+
+			/* Affichages de contrôle  */
+			// document.write("nbcherch : " + nbcherch + "<br />");
+			// document.write("nblu : " + nblu + "<br />");
+
+			/* Traitement */
+			if (nbcherch < nblu) {
+				/* Hors Liste à Gauche */
+				document.write(nbcherch + " est Hors Liste à Gauche");
+			} else {
+				while (nblu != 0 && nblu != nbcherch && nblu <= nbcherch) {
+					/* Mémorisation du nblu en cours avant relecture d'un nouveau nblu (nluancien servira dans la sortie Intercalé) */
+					nbluancien = nblu;
+					/* Saisie d'un nouveau nblu */
+					nblu = prompt("Nombre de la suite (0 pour finir) :");
+					nblu = parseInt(nblu);
+				}
+				/* Différenciation des sorties */
+				if (nblu == 0) {
+					document.write(nbcherch + " est Hors Liste à Droite");
+				} else {
+					if (nblu == nbcherch) {
+						document.write(nbcherch + " est Pile dans le liste");
+					} else {
+						if (nblu > nbcherch) {
+							document.write(nbcherch + " est Intercalé entre " + nbluancien + " et " + nblu);
+						}
+					}
+				}
+			}
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : DOM_03.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Gestion DOM - Gestion de liens "hypertexte" via DOM dans un document
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type"
+		content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>DOM_03</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - DOM_03</h1>
+
+		<!-- Début script JavaScript -->
+		<script type='text/javascript'>
+		
+			/* Affichage du nom du script */
+			alert("DOM_03");
+
+		</script>
+
+		<!-- Définition de plusieurs liens "hypertexte" consécutifs dans le document-->
+		Moteur de recherche <a href="http://www.google.fr" id="google">Google</a>
+		<br />
+		Site d'informations <a href="http://www.yahoo.fr" id="yahoo">Yahoo</a>
+		<br />
+		Encyclopédie <a href="http://www.wikipedia.fr" id="wikipedia">Wikipedia</a>
+
+		<!-- Début script JavaScript -->
+		<script type='text/javascript'>
+		
+			/* Saut de lignes */
+			document.write("<br /><br />");
+
+			/* Affichage du nombre de lien(s) 'hypertexte' du document */
+			document.write("Nombre de lien(s) 'hypertexte' du document : " + document.links.length + "<br />");
+
+			/* Affichage de l'identifiant du 2ème lien 'hypertexte' du document */
+			document.write("Identifiant du 2ème lien 'hypertexte' du document : " + document.links[1].id + "<br />");
+
+			/* Affichage de l'URL du 3ème lien 'hypertexte' du document */
+			document.write("URL du 3ème lien 'hypertexte' du document : " + document.links[2].href);
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

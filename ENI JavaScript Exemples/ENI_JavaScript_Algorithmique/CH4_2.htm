@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH4_2.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Imprimer en lettres le mois correspondant à un numéro donné au clavier (compris entre 1 et 12)
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH4_2</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH4_2</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("Exercice CH4_2");
+
+			/* Déclaration de variables locales */
+			var mois;
+
+			/* Saisie du numéro de mois */
+			mois = prompt("Numéro du mois (1 à 12) :");
+
+			/* Affichage du résultat */
+			if (mois == 1) {
+				document.write("Mois n° " + mois + " : Janvier");
+			} else {
+				if (mois == 2) {
+					document.write("Mois n° " + mois + " : Février");
+				} else {
+					if (mois == 3) {
+						document.write("Mois n° " + mois + " : Mars");
+					} else {
+						if (mois == 4) {
+							document.write("Mois n° " + mois + " : Avril");
+						} else {
+							if (mois == 5) {
+								document.write("Mois n° " + mois + " : Mai");
+							} else {
+								if (mois == 6) {
+									document.write("Mois n° " + mois + " : Juin");
+								} else {
+									if (mois == 7) {
+										document.write("Mois n° " + mois + " : Juillet");
+									} else {
+										if (mois == 8) {
+											document.write("Mois n° " + mois + " : Août");
+										} else {
+											if (mois == 9) {
+												document.write("Mois n° " + mois + " : Septembre");
+											} else {
+												if (mois == 10) {
+													document.write("Mois n° " + mois + " : Octobre");
+												} else {
+													if (mois == 11) {
+														document.write("Mois n° " + mois + " : Novembre");
+													} else {
+														if (mois == 12) {
+															document.write("Mois n° " + mois + " : Décembre");
+														} else {
+															document.write("Erreur de saisie");
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

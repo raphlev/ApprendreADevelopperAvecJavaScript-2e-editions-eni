@@ -1,0 +1,1 @@
+tsc --strictNullChecks exemple.ts

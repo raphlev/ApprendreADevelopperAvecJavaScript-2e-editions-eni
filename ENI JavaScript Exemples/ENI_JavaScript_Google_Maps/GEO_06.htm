@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : GEO_06.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Gestion carte Google Map - Carte de Rennes (Street View)
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta http-equiv & content -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Balise meta définissant la zone affichable -->
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=yes"/>
+		<!-- NB : initial-scale=1.0 : Ouverture de la page avec une échelle à 100 % -->
+		<!--      user-scalable=yes : Zoom possible de la part de l'utilisateur -->
+
+		<!-- Feuille de styles CSS -->
+		<style>
+			
+			/* Style CSS pour les sections html et body */
+			html, body {
+				height: 80%;
+				margin: 0;
+				padding: 0;
+			}
+			
+		</style>
+
+		<!-- Titre du script HTML -->
+		<title>GEO_06</title>
+
+		<!-- Appel de l'API Google Map -->
+		<!-- NB : sensor=false signifie que l'application ne propose pas de repérage GPS -->
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+
+		<!-- Script Javascript de mise en place de la carte -->
+		<script type="text/javascript">
+		
+			/* Fonction d'initialisation de la carte */
+			function initialiserCarte() {
+
+				/* Définition de la position de centrage de la carte (centrée sur la ville de Rennes) */
+				/* NB : Cf http://code-postal.fr.mapawi.com/france/1/arrondissement-de-rennes/3/84/rennes/35000/8412/ */
+				var centreGoogleMap = new google.maps.LatLng(48.0833, -1.6833);
+
+				/* Définition des options de la carte */
+				var optionsGoogleMap = {
+					/* Facteur de zoom */
+					zoom : 16,
+					/* Point de centrage */
+					center : centreGoogleMap,
+					/* Mode d'affichage de la carte (vue carte routière )*/
+					/* NB : google.maps.mapTypeId.ROADMAP   -> Affichage en mode Plan */
+					/*      google.maps.mapTypeId.SATELLITE -> Affichage en mode Satellite */
+					/*      google.maps.mapTypeId.HYBRID    -> Affichage en mode Mixte (Plan/Satellite) */
+					/*      google.maps.mapTypeId.TERRAIN   -> Affichage en mode Relief */
+					mapTypeId : google.maps.MapTypeId.ROADMAP
+				};
+
+				/* Mise en place de la carte dans la division maCarte */
+				var maCarte = new google.maps.Map(document.getElementById("maCarte"), optionsGoogleMap);
+
+				/* Définition des options Street View */
+				var streetViewOptions = {
+					// position: maCarte,
+					pov : {
+						heading : 34,
+						pitch : 10
+					}
+				};
+
+				/* Définition de la Street View */
+				var streetView = new google.maps.StreetViewPanorama(document.getElementById("maCarte"), panoramaOptions);
+
+				/* Mise en place de la Street View dans la division maCarte */
+				maCarte.setStreetView(streetView);
+
+			}
+
+			/* Appel de la fonction initialiserCarte par le gestionnaire d'événements */
+			google.maps.event.addDomListener(window, "load", initialiserCarte)
+
+		</script>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - GEO_06</h1>
+
+		<!-- Début script JavaScript -->
+		<script type="text/javascript">
+		
+			/* Affichage du nom du script */
+			alert("GEO_06");
+
+		</script>
+
+		<!-- Définition de la division dans laquelle la carte (y compris la Street View) sera affichée -->
+		<div id="maCarte" style="width:50%; height:50%"></div>
+
+		<!-- Message à destination des internautes ayant un navigateur sans Javascript -->
+		<noscript>
+			<p>
+				Remarque importante :
+			</p>
+			<p>
+				Pour utiliser une carte de type Google Map il faut que JavaScript soit activé dans votre navigateur.
+			</p>
+		</noscript>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

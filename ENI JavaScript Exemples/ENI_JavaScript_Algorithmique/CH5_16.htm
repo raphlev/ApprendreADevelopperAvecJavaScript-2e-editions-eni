@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH5_16.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Calculer le PGCD de deux nombres entiers lus au clavier (méthode de la soustraction)
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH5_16</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH5_16</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("Exercice CH5_16");
+
+			/* Déclaration de variables locales */
+			var a, b, diff;
+
+			/* Saisie du couplet */
+			a = prompt("a :");
+			b = prompt("b :");
+
+			/* Boucle de traitement */
+			diff = a - b;
+			if (diff < 0) {
+				diff = -diff;
+			}
+			while (diff != b && diff != 1) {
+				if (diff < b) {
+					a = b;
+					b = diff;
+				} else {
+					a = diff;
+				}
+				diff = a - b;
+				if (diff < 0) {
+					diff = -diff;
+				}
+			}
+
+			/* Affichage du résultat */
+			document.write("PGCD : " + diff);
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!--
+NOM DU SCRIPT : GEOCHART.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Tracé d'un graphique de type carte du monde par pays (Exemple Google Charts)
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>GEOCHART</title>
+
+		<!-- Chargement de l'API Google Chart -->
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+		<!-- Chargement du module visualization en version 1 avec en option le package geochart -->
+		<script type="text/javascript">
+			google.load('visualization', '1', {
+				packages : ['geochart']
+			});
+		</script>
+
+		<!-- Définition de la carte -->
+		<script type="text/javascript">
+		
+			/* Fonction tracerGraphe */
+			function tracerGraphe() {
+
+				/* Données à représenter graphiquement (Groupe E) */
+				var donnees = google.visualization.arrayToDataTable([['Pays', 'Indicateur'], ['Switzerland', 500], ['Ecuador', 500], ['France', 500], ['Honduras', 500]]);
+
+				/* Options de représentation graphique */
+				/* NB : Pour les nombreuses options veuillez consulter
+				 /*      https://developers.google.com/chart/interactive/docs/gallery/geochart */
+				var options = {
+					region : 'world',
+					backgroundColor : 'LightBlue',
+					fill : 'Green',
+					datalessRegionColor : 'Yellow',
+					legend : 'null'
+				};
+
+				/* Instanciation du graphique */
+				var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
+
+				/* Tracé du graphique */
+				chart.draw(donnees, options);
+
+			};
+
+			/* Affichage automatique du graphique */
+			google.setOnLoadCallback(tracerGraphe);
+
+		</script>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - GEOCHART</h1>
+
+		<!-- Début script JavaScript -->
+		<script type="text/javascript">
+		
+			/* Affichage du nom du script */
+			alert("GEOCHART");
+
+		</script>
+
+		<!-- Définition de la division d'affichage du graphique -->
+		<div id="chart_div" style="width: 900px; height: 500px;"></div>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

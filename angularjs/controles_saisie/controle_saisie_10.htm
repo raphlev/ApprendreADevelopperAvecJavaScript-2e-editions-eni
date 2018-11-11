@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : controle_saisie_10.htm
+Auteur : Christian VIGOUROUX
+Date de création : 19/04/2016
+Date de dernière modification : 19/4/2016
+Objet : Temporisateur
+-->
+
+<!-- Balise HTML -->
+<html lang="fr-FR">
+
+  <!-- Section HEAD -->
+  <head>
+    <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">	 
+    <!-- Appel du Framework AngularJS -->
+    <script
+      src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+    </script>
+  </head>
+
+  <!-- Section BODY -->
+  <body>
+
+    <!-- Script HTML intégrant des directives AngularJS -->
+    <div ng-app="monApplication" ng-controller="monControleur">
+
+      <!-- Utilisation de la police de caractères Arial -->
+      <font face="Arial">
+
+        <!-- Affichage de la temporisation -->
+        <div
+          ng-show="affichageDecompteTemps > 0">
+          Le décompte s'arrêtera dans 5 secondes
+        </div>
+        <div
+          ng-show="affichageDecompteTemps > 0">
+          Nombre de secondes restantes : {{affichageDecompteTemps}}
+        </div>
+        <div
+          ng-show="affichageDecompteTemps == 0">
+          Le décompte de 5 secondes est terminé
+        </div>
+
+      </font>
+
+    </div>
+
+    <!-- Module et contrôleur AngularJS -->
+    <script>
+
+      // Définition du module monApplication
+      var application = angular.module('monApplication', []);
+
+      // Définition du contrôleur monControleur
+      application.controller('monControleur', function($scope, $timeout) {
+
+        // Initialisation du compteur de secondes
+        var decompteTemps = 5;
+
+        // Définition de la fonction gererTemps
+        gererTemps = function() {
+          if (decompteTemps >= 0) {
+            // Actualisation de l'affichage
+            $scope.affichageDecompteTemps = decompteTemps;
+            // Décrémentation du compteur de secondes
+            decompteTemps--;
+            // Relance de la fonction gererTemps (toutes les 1000 ms=1 seconde)
+            $timeout(gererTemps, 1000);
+          }
+        };
+
+        // Lancement de la fonction gererTemps
+        gererTemps()
+
+        // Affichage du décompte du temps restant
+        $scope.affichageDecompteTemps = decompteTemps;
+
+      });
+
+    </script>
+
+  </body>
+
+</html>

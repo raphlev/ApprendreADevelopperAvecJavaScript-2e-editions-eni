@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH5_1_V1.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Calculer la moyenne de 10 nombres réels lus au clavier
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH5_1_V1</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH5_1_V1</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("Exercice CH5_1_V1");
+
+			/* Déclaration de variables locales */
+			var nblu, cpt, somme, moyenne;
+
+			/* Initialisations */
+			cpt = 1;
+			somme = 0.0;
+
+			/* Boucle de traitement */
+			while (cpt <= 10) {
+				nblu = parseFloat(prompt("Nombre n° " + cpt + " : "));
+				somme = somme + parseFloat(nblu);
+				cpt = cpt + 1;
+			}
+
+			/* Affichage du résultat */
+			moyenne = somme / 10;
+			document.write("Moyenne : " + moyenne);
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!-- NOM DU SCRIPT : FORM_07.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Gestion de formulaire  (contrôle de choix dans une liste déroulante)
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<!-- Titre du script HTML -->
+		<title>FORM_07</title>
+
+		<!-- Début script JavaScript -->
+		<script type='text/javascript'>
+		
+			/* Fonction testant si un choix a été fait dans une liste déroulante */
+			function controlerChoixListe(liste, messageAlerte) {
+				if (liste.value == "Votre sport favori") {
+					/* Affichage d'un message d'alerte */
+					alert(messageAlerte);
+					/* Focus sur le champ en erreur */
+					liste.focus();
+					/* Valeur de retour */
+					return false;
+				} else {
+					/* Valeur de retour */
+					alert("Votre sport préféré : " + liste.value);
+					// alert("Votre sport préféré : "
+					// + document.getElementById('liste').value);
+					return true;
+				}
+			}
+
+		</script>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - FORM_07</h1>
+
+		<!-- Début script JavaScript -->
+		<script type='text/javascript'>
+		
+			/* Affichage du nom du script */
+			alert("FORM_07");
+
+		</script>
+
+		<!-- Formulaire de saisie HTML -->
+		<form>
+			Sport pratiqué :
+			<select id='liste'>
+				<option>Votre sport favori</option>
+				<option>Golf</option>
+				<option>Football</option>
+				<option>Natation</option>
+				<option>Tennis</option>
+			</select>
+			<input
+			type='button'
+			onclick="controlerChoixListe(document.getElementById('liste'),
+			'Merci de choisir un sport dans la liste')"
+			value='Validation saisie'
+			/>
+		</form>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

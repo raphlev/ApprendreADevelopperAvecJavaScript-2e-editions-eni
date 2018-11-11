@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : try_catch.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Test de l'instruction try .. catch
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>TRY_CATCH</title>
+
+		<!-- Début script JavaScript -->
+		<script type='text/javascript'>
+		
+			/* Définition de la fonction verifJour */
+			function verifJour(numeroJour) {
+				/* Décrémentation du paramètre passé pour tenir compte de l'indiçage des valeurs du tableau débutant à 0 */
+				numeroJour = numeroJour - 1;
+
+				/* Déclaration d'un tableau des libellés de jour de la semaine */
+				var tableauJours = new Array("Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche");
+
+				/* Test de validité du paramètre */
+				if (tableauJours[numeroJour] != null) {
+					/* Valeur de retour (paramètre valide) */
+					return tableauJours[numeroJour];
+				} else {
+					/* Valeur de retour (paramètre invalide) */
+					return "Erreur dans le n° de jour";
+				}
+			}
+
+		</script>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - TRY_CATCH</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("TRY_CATCH");
+
+			/* Affichage du libellé du jour dans la semaine */
+			var numJour = 8;
+			try {
+				/* Récupération du libellé du jour */
+				alert(verifJour(numJour));
+				alert(verificationJour(numJour))
+			} catch(erreur) {
+				alert(erreur);
+			}
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

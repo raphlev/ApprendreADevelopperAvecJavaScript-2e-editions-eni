@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : DATE_03.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Gestion d'un timer
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>DATE_03</title>
+
+		<!-- Début script JavaScript -->
+		<script type="text/javascript">
+		
+			/* Fonction demarrerTimer */
+			function demarrerTimer() {
+				/* Valeur de départ du timer */
+				valeurTimer = 11;
+
+				/* Appel de la fonction d'actualisation du timer */
+				actualiserTimer();
+			}
+
+			/* Fonction actualiserTimer */
+			function actualiserTimer() {
+				if (valeurTimer > 0) {
+					/* Décrémentation d'une unité (seconde) */
+					valeurTimer = valeurTimer - 1;
+					/* Affichage de la valeur actualisée du timer */
+					document.getElementById("affichageTimer").innerHTML = valeurTimer;
+					/* Actualisation par appel de la fonction actualiserTimer */
+					if (valeurTimer > 0) {
+						/* Actualisation toutes les secondes
+						 (1000 millisecondes)
+						 */
+						monTimer = setTimeout("actualiserTimer()", 1000);
+					}
+				}
+			}
+
+			/* Fonction arreterTimer*/
+			function arreterTimer() {
+				clearTimeout(monTimer);
+			}
+
+		</script>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - DATE_03</h1>
+
+		<!-- Début script JavaScript -->
+		<script type="text/javascript">
+		
+			/* Affichage du nom du script */
+			alert("DATE_03");
+
+		</script>
+
+		<!-- Formulaire avec boutons de démarrage et d'arrêt du timer -->
+		<div>
+			<input
+			type="button"
+			value="Démarrage du timer"
+			onclick="demarrerTimer()"
+			/>
+			<input
+			type="button"
+			value="Arrêt du timer"
+			onclick="arreterTimer()"
+			/>
+		</div>
+
+		<!-- Division d'affichage du timer -->
+		<br />
+		<br />
+		<div id="affichageTimer">
+			Timer
+		</div>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

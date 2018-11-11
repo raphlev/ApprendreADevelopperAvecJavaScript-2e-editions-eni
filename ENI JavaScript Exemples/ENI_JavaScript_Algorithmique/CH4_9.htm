@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH4_9.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : A partir d’un menu affiché à l’écran, effectuer la somme ou le produit ou la moyenne de trois nombres
+saisis au clavier (utilisation de la structure de contrôle switch)
+
+Exemple :
+a : 2
+b : 2
+c : 3
+
+Menu
+1 - Somme
+2 - Produit
+3 - Moyenne
+Choix : 2
+
+Le produit est 12
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH4_9</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH4_9</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("Exercice CH4_9");
+
+			/* Déclaration de variables locales */
+			var nombre1, nombre2, nombre3, resultat, choix;
+
+			/* Saisie des 3 nombres au clavier */
+			nombre1 = prompt("Nombre n°1 :");
+			nombre2 = prompt("Nombre n°2 :");
+			nombre3 = prompt("Nombre n°3 :");
+
+			/* Affichage des 3 valeurs saisies */
+			document.write("nombre1 : " + nombre1 + "<br />");
+			document.write("nombre2 : " + nombre2 + "<br />");
+			document.write("nombre3 : " + nombre3 + "<br />");
+
+			/* Affichage du menu */
+			document.write("<br/>Menu<br/>");
+			document.write("1 – Calcul de la somme<br/>");
+			document.write("2 – Calcul du produit<br/>");
+			document.write("3 – Calcul de la moyenne<br/><br />");
+			choix = prompt("Taper 1,2 ou 3 :")
+
+			/* Traitement selon le choix */
+			switch (choix) {
+				case "1":
+					document.write("Addition demandée<br/>");
+					resultat = parseFloat(nombre1) + parseFloat(nombre2) + parseFloat(nombre3);
+					document.write("Résultat : " + resultat)
+					break;
+				case "2":
+					document.write("Produit demandé<br/>");
+					resultat = parseFloat(nombre1) * parseFloat(nombre2) * parseFloat(nombre3);
+					document.write("Résultat : " + resultat)
+					break;
+				case "3":
+					document.write("Moyenne demandée<br/>");
+					resultat = (parseFloat(nombre1) + parseFloat(nombre2) + parseFloat(nombre3)) / 3;
+					document.write("Résultat : " + resultat)
+					break;
+				default:
+					document.write("Taper 1,2 ou 3 à la prochaine exécution");
+			}
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

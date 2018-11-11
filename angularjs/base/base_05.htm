@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : base_05.htm
+Auteur : Christian VIGOUROUX
+Date de création : 19/04/2016
+Date de dernière modification : 19/4/2016
+Objet : Saisie via des zones de texte et évaluation d'une expression calculée
+-->
+
+<!-- Balise HTML -->
+<html>
+
+  <!-- Section HEAD -->
+  <head>
+    <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <!-- Appel du Framework AngularJS -->
+    <script
+      src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+    </script>
+  </head>
+
+  <!-- Section BODY -->
+  <body>
+
+    <!-- Script HTML intégrant des directives AngularJS -->
+    <div ng-app="" ng-init="vitesse_autorisee=90; vitesse_constatee=105">
+
+      <!-- Utilisation de la police de caractères Arial -->
+      <font face="Arial">
+
+        <!-- Saisie de la vitesse autorisée -->
+        <p>Vitesse autorisée :
+        <input type="text" ng-model="vitesse_autorisee"></p>
+
+        <!-- Saisie de la vitesse constatée -->
+        <p>Vitesse constatée :
+        <input type="text" ng-model="vitesse_constatee"></p>
+
+        <!-- Evaluation du dépassement de vitesse -->
+        <!-- NB : L'expression à évaluer est encadrée comme ceci {{expression}}
+                  ou au travers d'une directive ng-bind -->
+        Vitesse autorisée : {{vitesse_autorisee}}<br />
+        Vitesse constatée : {{vitesse_constatee}}<br />
+        Dépassement de vitesse : {{vitesse_constatee - vitesse_autorisee}}<br />
+        Dépassement de vitesse (via ng-bind) :
+        <span ng-bind="vitesse_constatee - vitesse_autorisee"></span>
+
+      </font>
+
+    </div>
+
+  </body>
+
+</html>

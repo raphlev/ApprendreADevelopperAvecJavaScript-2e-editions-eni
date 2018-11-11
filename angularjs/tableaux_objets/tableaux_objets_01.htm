@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : tableaux_objets_01.htm
+Auteur : Christian VIGOUROUX
+Date de création : 19/04/2016
+Date de dernière modification : 19/4/2016
+Objet : Utilisation d'un tableau
+-->
+
+<!-- Balise HTML -->
+<html>
+
+  <!-- Section HEAD -->
+  <head>
+    <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <!-- Appel du Framework AngularJS -->
+    <script
+      src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+    </script>
+  </head>
+
+  <!-- Section BODY -->
+  <body>
+
+    <!-- Script HTML intégrant des directives AngularJS -->
+    <div ng-app="" ng-init="vitesses=[90, 105]">
+
+      <!-- Utilisation de la police de caractères Arial -->
+      <font face="Arial">
+
+        <!-- Saisie de la vitesse autorisée -->
+        <!-- (numération des valeurs de 0 à n-1 dans les tableaux) -->
+        <p>Vitesse autorisée : <input type="text" ng-model="vitesses[0]"></p>
+
+        <!-- Saisie de la vitesse constatée -->
+        <p>Vitesse constatée : <input type="text" ng-model="vitesses[1]"></p>
+
+        <!-- Evaluation du dépassement de vitesse -->
+        <!-- NB : L'expression à évaluer est encadrée
+                  comme ceci {{expression}} -->
+        <!-- ou introduite au travers d'une directive ng-bind -->
+        Vitesse autorisée : {{vitesses[0]}}<br />
+        Vitesse constatée : {{vitesses[1]}}<br />
+        Dépassement de vitesse : {{vitesses[1] - vitesses[0]}}<br />
+        Dépassement de vitesse (via ng-bind) :
+        <span ng-bind="vitesses[1] - vitesses[0]"></span>
+
+      </font>
+
+    </div>
+
+  </body>
+
+</html>

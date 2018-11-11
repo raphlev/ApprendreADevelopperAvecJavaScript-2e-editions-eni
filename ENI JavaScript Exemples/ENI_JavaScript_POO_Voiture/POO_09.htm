@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : POO_09.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Approche POO en Javascript
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>POO_09</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - POO_09</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("POO_09");
+
+			/* Définition d'une fonction constructeur de nom Vehicule */
+			/* NB : Le constructeur est ici vide */
+			var Vehicule = function() {
+			};
+
+			/* Ajout d'une méthode accelerer au prototype du constructeur Vehicule */
+			Vehicule.prototype.accelerer = function() {
+				document.write("accélère</br>");
+			};
+
+			/* Ajout d'une méthode ralentir au prototype du constructeur Vehicule */
+			Vehicule.prototype.ralentir = function() {
+				document.write("ralentit</br>");
+			};
+
+			/* Définition d'une fonction constructeur de nom Voiture */
+			/* NB : Le constructeur est ici vide */
+			var Voiture = function() {
+			};
+
+			/* Copie de tous les éléments (attributs et méthodes) du prototype du constructeur Vehicule */
+			/* dans le prototype du constructeur Voiture */
+			/* NB : Surtout ne pas faire Voiture.prototype = Vehicule.prototype car dans ce cas le prototype serait partagé */
+			for (cle in Vehicule.prototype) {
+				Voiture.prototype[cle] = Vehicule.prototype[cle];
+			}
+
+			/* Surcharge du prototype du constructeur Voiture (ajout d'une méthode freiner) */
+			Voiture.prototype.freiner = function() {
+				document.write("freine");
+			};
+
+			/* Instanciation d'un objet simca1100 via le constructeur Voiture */
+			var simca1100 = new Voiture();
+
+			/* Appel de la méthode accelerer de l'objet simca1100 accessible depuis la copie du prototype du constructeur Vehicule) */
+			document.write("La simca1100 ");
+			simca1100.accelerer();
+
+			/* Appel de la méthode freiner de l'objet simca1100 accessible via le prototype du constructeur Voiture */
+			document.write("La simca1100 ");
+			simca1100.freiner();
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br>
+		<br>
+		<br>
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

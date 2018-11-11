@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.3/require.min.js"></script>
+		<script>
+      requirejs( [ "personne" ], function(personne) {
+        var personne = new personne.Personne( "alexandre", "brillant" );
+        personne.hello();
+      });
+    </script>
+	</head>
+	<body>
+	</body>
+</html>

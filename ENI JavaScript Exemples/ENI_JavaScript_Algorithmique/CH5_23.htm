@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH5_23.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Compter le nombre de voyelles d’un mot saisi au clavier
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH5_23</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH5_23</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("Exercice CH5_23");
+
+			/* Déclaration de variables locales */
+			var mot, nb_voyelles, compteur;
+
+			/* Saisie du mot */
+			mot = prompt("Mot :");
+
+			/* Conversion en majuscules (pour éviter de faire 12 tests) */
+			mot = mot.toUpperCase();
+
+			/* Initialisation des variables */
+			nb_voyelles = 0;
+
+			/* Détermination du nombre de voyelles */
+			for ( compteur = 0; compteur <= mot.length; compteur++) {
+				switch (mot.charAt(compteur)) {
+					case "A":
+						nb_voyelles = nb_voyelles + 1;
+						break;
+					case "E":
+						nb_voyelles = nb_voyelles + 1;
+						break;
+					case "I":
+						nb_voyelles = nb_voyelles + 1;
+						break;
+					case "O":
+						nb_voyelles = nb_voyelles + 1;
+						break;
+					case "U":
+						nb_voyelles = nb_voyelles + 1;
+						break;
+					case "Y":
+						nb_voyelles = nb_voyelles + 1;
+						break;
+				}
+			}
+
+			/* Affichage du résultat */
+			document.write(mot, " contient " + nb_voyelles + " voyelles");
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

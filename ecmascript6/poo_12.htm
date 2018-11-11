@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : poo_12.htm
+Auteur : Christian VIGOUROUX
+Date de création : 19/04/2016
+Date de dernière modification : 19/4/2016
+Objet : POO en EcmaScript 6 (exemple 2)
+Référence : https://googlechrome.github.io/samples/classes-es6/
+-->
+
+<!-- Balise HTML -->
+<html>
+
+	<!-- Section HEAD -->
+	<head>
+		<!-- Balise meta de gestion de l'accentuation UTF-8 -->
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+	</head>
+
+	<!-- Section BODY -->
+	<body>
+
+		<!-- Script HTML  -->
+			
+			<!-- Utilisation de la police de caractères Arial -->
+			<font face="Arial">
+            
+        <!-- Affichage du titre du script -->
+        <h1>EcmaScript 6 : POO Sample 2 - Script poo_12.htm</h1>
+  
+  		  <!-- Script JavaScript -->
+  		  <script>
+  			          
+          // Exemple 2: Définition de classe par "expression-form"
+          // =====================================================
+          
+          // Our Polygon class above is an example of a Class declaration.
+          // ES6 classes also support Class expressions - just another way
+          // of defining a new class. For example:
+          
+          // Définition d'une classe Poly
+          // NB : Cette classe a la particularité d'avoir un méthode constructeur sans paramètres
+          const MyPoly = class Poly {
+          
+            // Méthode constructeur
+            constructor(height, width) {
+              this.name = 'Polygon';
+            }
+            
+            // Méthode getPolyName
+            getPolyName() {
+              document.write('Hi. I was created with a Class expression. My name is ' +  this.name);
+            }
+            
+          };
+          
+          // Instanciation d'un objet inst de la classe MyPoly
+          let inst = new MyPoly();
+          
+          // Appel de la maéthode getPolyName de la classe MyPoly
+          inst.getPolyName();
+
+  		  </script>
+      
+      </font>
+
+	</body>
+
+</html>

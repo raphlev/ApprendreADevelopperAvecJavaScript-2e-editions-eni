@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH4_7.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : A partir de la saisie du prix unitaire d’un produit (PU) et de la quantité commandée (QTECOM),
+afficher le prix à payer (PAP), en détaillant le port (PORT) et la remise (REM) sachant que :
+- Le port est gratuit si le prix des produits (TOT) est supérieur à 500 F. Dans le cas contraire le port est de 2% du TOT.
+- La remise est de 5% si TOT est compris entre 200 et 1000 F et de 10% au-delà.
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH4_7</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH4_7</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("Exercice CH4_7");
+
+			/* Déclaration de variables locales */
+			var pu, qtecom, rem, port, tot, pap;
+
+			/* Saisie du prix unitaire */
+			pu = prompt("Prix unitaire :");
+
+			/* Saisie de la quantité commandée */
+			qtecom = prompt("Quantité commandée :");
+
+			/* Calcul du total brut */
+			tot = pu * qtecom;
+
+			/* Calcul du port */
+			if (tot > 500) {
+				port = 0;
+			} else {
+				port = tot * 0.02
+			}
+
+			/* Calcul de la remise */
+			if (tot > 1000) {
+				rem = tot * .01
+			} else {
+				if (tot >= 200) {
+					rem = tot * 0.05
+				}
+			}
+
+			/* Calcul du prix à payer */
+			pap = tot + port - rem
+
+			/* Affichage des résultats */
+			document.write("Le brut de la facture est de : " + tot + "<br />");
+			document.write("Le port est de : " + port + "<br />");
+			document.write("La remise commerciale est de : " + rem + "<br />");
+			document.write("Le net de la facture est de : " + pap + "<br />");
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

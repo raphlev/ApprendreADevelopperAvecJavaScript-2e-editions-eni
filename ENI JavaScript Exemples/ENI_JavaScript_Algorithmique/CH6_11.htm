@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH6_11.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Soit le tableau TB à 1 dimension comportant 10 éléments de type caractère. Réaliser les traitements suivants :
+- Mise à vide des 10 cases du tableau (boucle Pour utilisable)
+- Saisie d'un mot au clavier (LAVAL par exemple)
+- Stockage du mot dans le tableau TB à raison d'une lettre par case (boucle Pour utilisable)
+- Détermination d’un cas de palindrome ou pas
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH6_11</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH6_11</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("Exercice CH6_11");
+
+			/* Déclaration de variables locales */
+			var mot, mot_inverse, cpt;
+
+			/* Saisie du mot au clavier */
+			mot = prompt("Mot à analyser :");
+
+			/* Inversion du mot */
+			mot_inverse = "";
+			document.write("Longueur du mot à analyser : " + mot.length + "<br />")
+			cpt = mot.length;
+			while (cpt >= 0) {
+				mot_inverse = mot_inverse + mot.substr(cpt, 1);
+				cpt = cpt - 1;
+			}
+
+			/* Affichage du résultat */
+			document.write("Le mot inversé est " + mot_inverse + "<br />");
+			if (mot == mot_inverse) {
+				document.write(mot + " est un palyndrome");
+			} else {
+				document.write(mot + " n'est pas un palyndrome");
+			}
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : WINDOW_02.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Gestion de l'objet window
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>WINDOW_02</title>
+
+		<!-- Début script JavaScript -->
+		<script type="text/javascript">
+		
+			/* Fonction ouvrirFenetre */
+			function ouvrirFenetre(URL)
+			{
+				maFenetre = window.open(
+				URL,
+				"FENETRE_02",
+				"width=400,
+				height=200,
+				location=1,
+				titlebar=yes,
+				resizable=yes"
+			);
+			}
+
+			/* Fonction fermerFenetre */
+			function fermerFenetre()
+			{
+				maFenetre.close();
+			}
+			
+		</script>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - WINDOW_02</h1>
+
+		<!-- Début script JavaScript -->
+		<script type="text/javascript">
+			
+			/* Affichage du nom du script */
+			alert("WINDOW_02");
+
+		</script>
+
+		<!-- Formulaire -->
+		<form>
+			Ouverture d'une fenêtre avec passage de l'URL en paramètre</br>
+			<input
+				type="button"
+				value="Ouverture d'une fenêtre yahoo.fr"
+				onclick="ouvrirFenetre('http://www.yahoo.fr')"
+			/>
+			<br />
+			<br />
+			<br />
+			Fermeture de la fenêtre</br>
+			<input
+				type="button"
+				value="Fermeture de la fenêtre"
+				onclick="fermerFenetre()"
+			/>
+		</form>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

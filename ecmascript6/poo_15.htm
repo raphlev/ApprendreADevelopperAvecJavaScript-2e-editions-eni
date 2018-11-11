@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : poo_14.htm
+Auteur : Christian VIGOUROUX
+Date de création : 19/04/2016
+Date de dernière modification : 19/4/2016
+Objet : POO en EcmaScript 6 (exemple 5)
+Référence : http://sravi-kiran.blogspot.fr/2015/01/StaticClassMembersInES6.html
+-->
+
+<!-- Balise HTML -->
+<html>
+
+	<!-- Section HEAD -->
+	<head>
+		<!-- Balise meta de gestion de l'accentuation UTF-8 -->
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+	</head>
+
+	<!-- Section BODY -->
+	<body>
+
+		<!-- Script HTML  -->
+			
+			<!-- Utilisation de la police de caractères Arial -->
+			<font face="Arial">
+            
+        <!-- Affichage du titre du script -->
+        <h1>EcmaScript 6 : POO Sample 5 - Script poo_15.htm</h1>
+  
+  		  <!-- Script JavaScript -->
+  		  <script>
+  			          
+          // Exemple 5 : Méthode statique
+          // ============================
+          
+          // Définition d'une classe Employee
+          class Employee
+          {
+            
+            // Méthode constructor
+            constructor(nom) {
+              this.nom = nom;
+            }
+            
+            // Méthode de type getter (accès aux valeurs des attributs)
+            get getNom() {
+              // Retour du nom
+              return this.nom;
+            }
+           
+            // Méthode statique comptant le nombre d'objets créés par l'intermédiaire de cette classe
+            static getCounter() {
+              if(!this.counter && this.counter !== 0) {
+                // Initialisation du compteur d'objets instanciés
+                this.counter = 0;
+              }
+              else {
+                // Incrémentation du nombre d'objets instanciés
+                this.counter++;
+              }
+              // Valeur de retour
+              return this.counter + 1;
+              
+            }
+          
+          }
+          
+          // Instanciation d'un objet employe1 de la classe Employee et affichage du nombre d'objets instanciés
+          let employe1 = new Employee("Christian");
+          document.write("Employé n°1 : " + employe1.getNom + "<br />");
+          document.write("Nombre d'employé(s) : " + Employee.getCounter() + "<br /><br />");
+          
+          // Instanciation d'un objet employe1 de la classe Employee et affichage du nombre d'objets instanciés
+          let employe2 = new Employee("Pascal");
+          document.write("Employé n°2 : " + employe2.getNom + "<br />");          
+          document.write("Nombre d'employé(s) : " + Employee.getCounter() + "<br /><br />");
+
+          // Instanciation d'un objet employe1 de la classe Employee et affichage du nombre d'objets instanciés
+          let employe3 = new Employee("Olivier");
+          document.write("Employé n°3 : " + employe3.getNom + "<br />");          
+          document.write("Nombre d'employé(s) : " + Employee.getCounter())
+
+  		  </script>
+      
+      </font>
+
+	</body>
+
+</html>

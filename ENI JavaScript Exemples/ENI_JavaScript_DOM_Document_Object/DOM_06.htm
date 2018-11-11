@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : DOM_06.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Gestion DOM - Gestion des ancres via DOM dans un document
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type"
+		content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>DOM_06</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - DOM_06</h1>
+
+		<!-- Début script JavaScript -->
+		<script type='text/javascript'>
+		
+			/* Affichage du nom du script */
+			alert("DOM_06");
+
+		</script>
+
+		<!-- Définition d'ancres (pouvant ensuite être atteintes par un href) -->
+		<a name="html">Cours n°1 (HTML)</a>
+		<br />
+		<a name="css">Cours n°2 (CSS)</a>
+		<br />
+		<a name="xml">Cours n°3 (XML)</a>
+		<br />
+
+		<!-- Définition d'un lien hypertexte pointant sur google.fr (ne sera pas comptabilisé comme une ancre) -->
+		Accès à un <a href="http://www.google.fr">complément de cours</a> (cf. moteur de recherche google)
+
+		<!-- Début script JavaScript -->
+		<script type='text/javascript'>
+		
+			/* Saut de lignes */
+			document.write("<br /><br />");
+
+			/* Affichage du nombre d'ancre(s) du document */
+			document.write("Nombre d'ancre(s) du document : " + document.anchors.length + "<br />");
+
+			/* Affichage de l'intitulé de la 1ère ancre du document */
+			document.write("1ère ancre du document : " + document.anchors[0].text + "<br />");
+
+			/* Affichage du nom de la 2ème ancre du document */
+			document.write("2ème ancre du document : " + document.anchors[1].name);
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

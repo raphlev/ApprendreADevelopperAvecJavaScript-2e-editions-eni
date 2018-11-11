@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH6_14.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Soit le tableau tb à 2 dimensions comportant 50 éléments de type entier (5 lignes de 10 colonnes).
+Réaliser les traitements suivants :
+- Saisir au clavier les 50 valeurs du tableau tb (2 boucles Pour imbriquées)
+- Saisir au clavier 5 entiers qui serviront de multiplicateurs pour les éléments des 5 lignes
+(le 1er saisi servira de multiplicateur pour les éléments de la 1ère ligne et ainsi de suite)
+- Calculer également la somme des éléments du tableau tb (après l’application des multiplicateurs) et afficher cette somme à l’écran
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH6_14</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH6_14</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("Exercice CH6_14");
+
+			/* Déclaration de variables locales */
+			var tb = new Array(6, 11);
+			var multiplicateur, cpt_lignes, cpt_colonnes, somme;
+			var tirage;
+
+			/* Initialisations */
+			somme = 0;
+
+			/* Initialisation du tableau tb */
+			for (cpt_lignes = 1; cpt_lignes <= 5; cpt_lignes++) {
+				/* Saisie du coefficient multiplicateur */
+				multiplicateur = parseInt(prompt("Coefficient multiplicateur :"));
+				for (cpt_colonnes = 1; cpt_colonnes <= 10; cpt_colonnes++) {
+					/* Tirage aléatoire d'un nombre de 1 à 10 */
+					tirage = Math.floor(Math.random() * 10) + 1;
+					tirage = parseInt(tirage);
+					document.write("Tirage : " + tirage + "<br />");
+					/* Placement de la valeur tirée dans le tableau tb */
+					tb[cpt_lignes, cpt_colonnes] = tirage;
+					/* Contrôle */
+					document.write("tb V1(" + cpt_lignes + "," + cpt_colonnes + ")=" + tb[cpt_lignes, cpt_colonnes] + "<br />");
+					/* Multiplication */
+					tb[cpt_lignes, cpt_colonnes] = tb[cpt_lignes, cpt_colonnes] * multiplicateur;
+					/* Sommation */
+					somme = somme + tb[cpt_lignes, cpt_colonnes];
+					/* Contrôle */
+					document.write("tb V2(" + cpt_lignes + "," + cpt_colonnes + ")=" + tb[cpt_lignes, cpt_colonnes] + "<br />");
+				}
+			}
+
+			/* Affichage de la somme */
+			document.write("Somme des valeurs du tableau tb : " + somme);
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

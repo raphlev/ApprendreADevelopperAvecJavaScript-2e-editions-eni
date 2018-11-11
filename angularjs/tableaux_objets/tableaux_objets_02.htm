@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : tableaux_objets_02.htm
+Auteur : Christian VIGOUROUX
+Date de création : 19/04/2016
+Date de dernière modification : 19/4/2016
+Objet : Utilisation d'un objet
+-->
+
+<!-- Balise HTML -->
+<html>
+
+  <!-- Section HEAD -->
+  <head>
+    <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <!-- Appel du Framework AngularJS -->
+    <script
+      src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+    </script>
+  </head>
+
+  <!-- Section BODY -->
+  <body>
+
+    <!-- Script HTML intégrant des directives AngularJS -->
+    <!-- NB : Il est possible d'initialiser un objet (vitesses) -->
+    <!--      ici constitué de deux propriétés
+              (vitesse_autorisee et vitesse_constatee) -->
+    <div ng-app=""
+         ng-init="vitesses={vitesse_autorisee: 90, vitesse_constatee: 115}">
+
+      <!-- Utilisation de la police de caractères Arial -->
+      <font face="Arial">
+
+        <!-- Saisie de la vitesse autorisée -->
+        <!-- (numération des valeurs de 0 à n-1 dans les tableaux) -->
+        <p>Vitesse autorisée :
+        <input type="text" ng-model="vitesses.vitesse_autorisee"></p>
+
+        <!-- Saisie de la vitesse constatée -->
+        <p>Vitesse constatée :
+        <input type="text" ng-model="vitesses.vitesse_constatee"></p>
+
+        <!-- Evaluation du dépassement de vitesse -->
+        <!-- NB : L'expression à évaluer est encadrée -->
+        <!--      comme ceci {{expression}}
+                  ou introduite au travers d'une directive ng-bind -->
+        Vitesse autorisée : {{vitesses.vitesse_autorisee}}<br />
+        Vitesse constatée : {{vitesses.vitesse_constatee}}<br />
+        Dépassement de vitesse :
+        {{vitesses.vitesse_constatee - vitesses.autorisee}}<br />
+        Dépassement de vitesse (via ng-bind) :
+        <span
+          ng-bind="vitesses.vitesse_constatee - vitesses.vitesse_autorisee">
+        </span>
+
+      </font>
+
+    </div>
+
+  </body>
+
+</html>

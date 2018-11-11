@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH6_3.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Tri d'un tableau d'entiers par la méthode du blocage du maximum à droite
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH6_3</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH6_3</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+			
+			/* Affichage du nom du script */
+			alert("Exercice CH6_3");
+
+			/* Déclaration de variables locales */
+			/*
+			i         : Variable de travail
+		 	j         : Variable de travail
+			indmax    : Indice de la case contenant le maximum
+			inter     : Variable permettant la permutation
+			nblu      : Nombre lu au clavier et à insérer
+			i         : Variable de travail
+			j         : Variable de travail
+			cpt       : Nombre d'éléments déjà rangés
+			*/
+			var table = new Array;
+			var i, j, indmax, inter;
+
+			/* Boucle de chargement du tableau */
+			for (i = 1; i <= 10; i++) {
+				table[i] = prompt("table[" + i + "] :");
+				table[i] = parseInt(table[i]);
+			}
+			document.write("Saisie terminée" + "<br />");
+
+			/* Boucles de tri du tableau */
+			for (i = 1; i <= 9; i++) {
+				indmax = 1;
+				for (j = 2; j <= 11 - i; j++) {
+					if (table[j] > table[indmax]) {
+						indmax = j;
+					}
+				}
+				/* Inversion */
+				if (table[11 - i] != table[indmax]) {
+					inter = table[indmax];
+					table[indmax] = table[11 - i];
+					table[11 - i] = inter;
+				}
+			}
+			document.write("Tri terminé" + "<br />");
+
+			/* Affichage du résultat */
+			for (i = 1; i <= 10; i++) {
+				document.write("table[" + i + "] : " + table[i] + "<br />");
+			}
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

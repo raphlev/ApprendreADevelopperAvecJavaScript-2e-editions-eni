@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH5_3.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Calculer la surface et le volume de sphères de rayon lu au clavier (traitement de n sphères avec saisie d'un zéro pour finir)
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH5_3</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH5_3</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("Exercice CH5_3");
+
+			/* Déclaration de variables locales */
+			var pi, rayon, surface, volume;
+
+			/* Initialisations */
+			pi = 3.14;
+
+			/*
+			Boucle de traitement
+			*/
+			/* Saisie du rayon */
+			rayon = prompt("Rayon de la sphère (0 si fin) :");
+			while (rayon > 0) {
+				/* Calculs */
+				surface = 4 * pi * rayon * rayon;
+				volume = surface * rayon / 3;
+				/* Affichage des résultats */
+				document.write("Surface : " + surface + "<br/>Volume : " + volume + "<br /><br />");
+				/* Saisie du rayon */
+				rayon = prompt("Rayon de la sphère (0 si fin) :");
+			}
+
+			/* Fin de traitement */
+			document.write("Travail terminé");
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

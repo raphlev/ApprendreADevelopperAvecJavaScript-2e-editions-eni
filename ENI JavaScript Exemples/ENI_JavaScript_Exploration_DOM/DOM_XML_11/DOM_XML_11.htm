@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : DOM_XML_11.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Gestion DOM - Conversion fichier XML en tableau HTML via DOM (fichier voitures.xml)
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>DOM_XML_11</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - DOM_XML_11</h1>
+
+		<!-- Début script JavaScript -->
+		<script type="text/javascript">
+		
+			/* Affichage du nom du script */
+			alert("DOM_XML_11");
+
+			/* Création d'un objet XMLHttpRequest pour échanger des données avec le serveur au format texte, XML ou JSON */
+			/* NB : Les fichiers XML sont automatiquement parsés par l'objet et accessibles par les méthodes du DOM */
+			if (window.XMLHttpRequest) {
+				// Code spécifique pour les navigateurs IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+			} else {
+				// Code spécifique pour les navigateurs IE6, IE5
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+
+			/* Ouverture du fichier XML voitures.xml en mode synchrone (false)*/
+			xmlhttp.open("GET", "voitures.xml", false);
+
+			/* Emission de la requête HTTP vers le serveur  */
+			xmlhttp.send();
+
+			/* Création du document XML en mémoire */
+			xmlDoc = xmlhttp.responseXML;
+
+			/*
+			 Création du tableau HTML
+			 */
+			/* Balise HTML de début de table */
+			document.write("<table border='1'>");
+			/* Mise en place de la ligne des intitulé de colonnes */
+			document.write("<tr>");
+			document.write("<td>");
+			document.write("Marque");
+			document.write("</td>");
+			document.write("<td>");
+			document.write("Modèle");
+			document.write("</td>");
+			document.write("</tr>");
+			/* Parcours de la liste des voitures */
+			var voiture = xmlDoc.getElementsByTagName("voiture");
+			for (i = 0; i < voiture.length; i++) {
+				/* Mise en place d'un nouvelle ligne dans le table HTML */
+				document.write("<tr>");
+				/* Ouverture de la 1ère colonne (marque de la voiture) */
+				document.write("<td>");
+				/* Ecriture de la marque de la voiture  */
+				document.write(voiture[i].
+				getElementsByTagName("marque")[0]
+				.childNodes[0].nodeValue);
+				/* Fermeture de la 1ère colonne */
+				document.write("</td>");
+				/* Ouverture de la 2ème colonne (modèle de la voiture) */
+				document.write("<td>");
+				/* Ecriture du modèle de le voiture */
+				document.write(voiture[i]
+				.getElementsByTagName("modele")[0]
+				.childNodes[0].nodeValue);
+				/* Fermeture de la 2ème colonne */
+				document.write("</td>");
+				/* Fermeture de la ligne dans le table HTML */
+				document.write("</tr>");
+			}
+			/* Balise HTML de fin de table */
+			document.write("</table>");
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

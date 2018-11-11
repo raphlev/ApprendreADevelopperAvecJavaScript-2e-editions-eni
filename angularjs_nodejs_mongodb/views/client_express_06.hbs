@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : client_express_06.hbs
+Auteur : Christian VIGOUROUX
+Date de création : 19/04/2016
+Date de dernière modification : 19/4/2016
+Objet : Passage de valeurs de champs à un serveur Express js (express_06.js)
+        via la méthode post
+-->
+
+<!-- Balise HTML -->
+<html>
+
+  <!-- Section HEAD -->
+  <head>
+    <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <!-- Appel du Framework Angular -->
+    <script
+      src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+    </script>
+  </head>
+
+  <!-- Section BODY -->
+  <body>
+
+    <!-- Script HTML intégrant des directives Angular -->
+    <div ng-app="monApplication" ng-controller="monControleur">
+
+      <!-- Utilisation de la police de caractères Arial -->
+      <font face="Arial">
+
+        <!-- Saisie de la marque via contrôle HTML de type input -->
+        Marque : <input type="text" ng-model="marqueVoiture"><br />
+
+        <!-- Saisie du modèle via contrôle HTML de type input -->
+        Modèle : <input type="text" ng-model="modeleVoiture"><br />
+
+        <!-- Saisie du pays via contrôle HTML de type input -->
+        Pays : <input type="text" ng-model="paysVoiture"><br /><br />
+
+        <!-- Validation via contrôle HTML de type button -->
+        <button type="submit"
+          ng-click="ajouterVoiture(marqueVoiture, modeleVoiture, paysVoiture)">
+          Envoi des informations sur un serveur Express js-Mongo DB
+        </button><br>
+
+      </font>
+
+    </div>
+    
+    <script>
+
+      // Déclaration du module nommé monApplication
+      var application = angular.module("monApplication", []);
+
+      // Déclaration du contrôleur nommé monControleur
+      application.controller("monControleur", function($scope, $http) {
+
+        // Fonction d'ajout d'une voiture dans la collection voitures
+        // de la BDD Mongo voitures_sport
+        // via un script serveur Express js (express_06.js)
+        $scope.ajouterVoiture = function(marque, modele, pays) {
+
+          // Affichages de contrôle (alert)
+          // alert("Marque : " + marque);
+          // alert("Modèle : " + modele);
+          // alert("Pays : " + pays);
+
+          // Création d'une requête http à poster (contenu JSON)
+          // NB : Test d'existence de la variable marqueVoiture
+          // pour éviter une erreur de décodage sur le serveur PHP
+          if ($scope.marqueVoiture) {
+
+            // Requête http
+            $http({
+              url: "http://127.0.0.1:8080/express_06",
+              method: "POST",
+              data: {marque: marque, modele: modele, pays: pays},
+              headers: {"Content-Type": "application/x-www-form-urlencoded"}
+            })
+            .then(function successCallback(response) {
+              // Cas succès
+              // ...
+            }, function errorCallback(response) {
+              // Cas échec
+              // ...
+
+            });
+
+          }
+
+        };	
+
+      });    
+
+    </script>
+
+  </body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html> 
+  <head> 
+    <script type="text/javascript"> 
+      function valider( form ) { 
+        var fields = form.getElementsByTagName( "input" ); 
+        for ( var i = 0;i < fields.length; i++ ) { 
+          var f = fields[ i ]; 
+          if ( f.required ) { 
+			console.log( "Le champ " + f.name + " est obligatoire" );
+          } 
+        } 
+        return false; 
+      } 
+    </script> 
+  </head> 
+  <body> 
+  <form onsubmit="return valider(this)"> 
+    <input type="text" name="nom" required> <br> 
+    <input type="text" name="prenom" required> <br> 
+    <input type="submit" value="Valider"> 
+  </form> 
+  </body> 
+</html>

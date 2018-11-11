@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : JSON_03.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Utilisation de JSON
+Accès via XMLHttpRequest à un script serveur PHP
+générant un flux JSON
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type"
+		content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>JSON_03</title>
+
+		<!-- Début script JavaScript -->
+		<script type="text/javascript">
+			
+			/* Fonction ajaxJSON */
+			function ajaxJSON() {
+
+				/* Assoctation de la variable resultat à la division
+				d'affichage divisionResultat */
+				var resultat = document.getElementById("divisionResultat");
+
+				/* Instanciation d'un objet de type XMLHttpRequest
+				/* NB : XMLHttpRequest est un objet ActiveX
+				ou JavaScript qui permet d'obtenir des données
+				au format XML, JSON, mais aussi HTML, ou encore texte
+				simple à l'aide de requêtes HTTP. */
+				if (window.XMLHttpRequest) {
+					// Code pour IE7+, Firefox, Chrome, Opera, Safari
+					httpRequest = new XMLHttpRequest();
+				} else {
+					// Code pour IE6, IE5
+					httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+
+				/* Ouverture du fichier voitures.json via le script PHP
+				 serveurJSON */
+				/* true : mode asynchrone -> le flux doit être
+				 disponible entièrement avant son traitement */
+				httpRequest.open("GET", "serveurJSON.php", true);
+
+				/* Définition du type de flux */
+				httpRequest.setRequestHeader("Content-type", "application/json");
+
+				/* Traitement effectué dès que le flux est disponible */
+				httpRequest.onreadystatechange = function() {
+
+					/* Test si requête terminée et test status OK */
+					if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+
+						/* Conversion du flux JSON
+						 en objets Javascript */
+						var donneesJSON = JSON.parse(httpRequest.responseText);
+
+						/* Initialisation de la variable resultat */
+						resultat.innerHTML = "";
+
+						/* Parcours des objets Javascript */
+						for (var objet in donneesJSON) {
+							/* Concaténation du résultat */
+							/* NB : Une ligne par enregistrement JSON
+							 + un trait de séparation */
+							resultat.innerHTML += donneesJSON[objet].libelle + " -> " + donneesJSON[objet].vitesse_maxi + " Km/h <hr />";
+						}
+
+					}
+
+				}
+				/* Pas d'envoi de paramètres au travers
+				 de la requête XMLHttpRequest */
+				httpRequest.send(null);
+
+				/* Message affiché en attente du traitement
+				 du fichier voitures.json */
+				results.innerHTML = "Attente de traitement JSON ...";
+
+			}
+
+		</script>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - JSON_03</h1>
+
+		<!-- Début script JavaScript -->
+		<script type="text/javascript">
+		
+			/* Affichage du nom du script */
+			alert("JSON_03");
+
+		</script>
+
+		<!-- Division d'affichage du résultat -->
+		<div id="divisionResultat"></div>
+
+		<!-- Appel de la fonction JSON ajaxJSON -->
+		<script type="text/javascript">
+			ajaxJSON();
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

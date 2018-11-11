@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : POO_01.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Approche POO en Javascript
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>POO_01</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - POO_01</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("POO_01");
+
+			/* Déclaration inline d'un objet Javascript */
+			/* NB : Cette technique ne permet pas l'héritage à partir de ce objet par la suite */
+			var Addition = {
+				x : 5,
+				y : 10,
+				calcul : function() {
+					return this.x + this.y;
+				}
+			};
+
+			/* Utilisation de l'objet Addition */
+			document.write("Somme = " + Addition.calcul());
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br>
+		<br>
+		<br>
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

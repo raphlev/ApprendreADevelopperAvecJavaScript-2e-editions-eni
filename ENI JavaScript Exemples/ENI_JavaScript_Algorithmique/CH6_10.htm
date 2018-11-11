@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH6_10.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Soit deux tableaux d’entiers ordonnés, le premier (TB1) de 5 éléments, le second (TB2) de 5 éléments
+Fusionner les valeurs en respectant l’ordre croissant dans un troisième tableau (TB3) de 10 éléments
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH6_10</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH6_10</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("Exercice CH6_10");
+
+			/* Déclaration de variables locales */
+			var tb1 = new Array;
+			var tb2 = new Array;
+			var tb3 = new Array;
+			var compteur1, compteur2, compteur3, nblu;
+
+			/* Initialisation du tableau tb1 */
+			tb1[1] = parseInt(prompt("tb1[1] :"));
+			compteur1 = 2;
+			while (compteur1 <= 5) {
+				nblu = parseInt(prompt("tb1[" + compteur1 + "] :"));
+				while (nblu < tb1[compteur1 - 1]) {
+					alert("Saisir une suite croissante !");
+					nblu = parseInt(prompt("tb1[" + compteur1 + "] :"));
+				}
+				tb1[compteur1] = nblu;
+				compteur1 = compteur1 + 1;
+			}
+
+			/* Initialisation du tableau tb2 */
+			tb2[1] = parseInt(prompt("tb2[1] :"));
+			compteur2 = 2;
+			while (compteur2 <= 5) {
+				nblu = parseInt(prompt("tb2[" + compteur2 + "] :"));
+				while (nblu < tb2[compteur2 - 1]) {
+					alert("Saisir une suite croissante !");
+					nblu = parseInt(prompt("tb2[" + compteur2 + "] :"));
+				}
+				tb2[compteur2] = nblu;
+				compteur2 = compteur2 + 1;
+			}
+
+			/* Fusion */
+			compteur1 = 1;
+			compteur2 = 1;
+			compteur3 = 1;
+			while (compteur1 <= 5 && compteur2 <= 5) {
+				if (tb1[compteur1] <= tb2[compteur2]) {
+					tb3[compteur3] = tb1[compteur1];
+					compteur1 = compteur1 + 1;
+				} else {
+					tb3[compteur3] = tb2[compteur2];
+					compteur2 = compteur2 + 1;
+				}
+				compteur3 = compteur3 + 1;
+			}
+
+			/* Fin traitement du tableau non reporté en tb3 */
+			if (compteur1 > 5) {
+				/* Fin traitement du tableau tb2 */
+				while (compteur2 <= 5) {
+					tb3[compteur3] = tb2[compteur2];
+					compteur2 = compteur2 + 1;
+					compteur3 = compteur3 + 1;
+				}
+			} else {
+				/* Fin traitement du tableau tb1 */
+				while (compteur1 <= 5) {
+					tb3[compteur3] = tb1[compteur1];
+					compteur1 = compteur1 + 1;
+					compteur3 = compteur3 + 1;
+				}
+
+			}
+
+			/* Affichage écran du tableau tb3 */
+			for ( compteur3 = 1; compteur3 <= 10; compteur3++) {
+				document.write("tb3[" + compteur3 + "] : " + tb3[compteur3] + "<br />");
+			}
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

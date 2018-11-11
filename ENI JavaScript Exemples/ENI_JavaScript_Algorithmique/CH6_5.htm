@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH6_5.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Soit une file de nombres compris entre 1 et 20, saisis au clavier. L’algorithme devra éditer à l’écran un histogramme
+        horizontal de la fréquence des nombres.
+        Exemple :
+        1 **** (le chiffre 1 a été saisi 4 fois)
+        2 ** (le chiffre 2 a été saisi 2 fois)
+        3 * (le chiffre 3 a été saisi 1 fois)
+        4 ****** (le chiffre 4 a été saisi 6 fois)
+        A chaque nouvelle saisie d’un nombre, il faut augmenter de 1 le nombre d’occurrence lui correspondant.
+        Comme chacun de ces nombres est obligatoirement compris entre 1 et 20, on utilisera un tableau à une dimension
+        de 20 cases pour compter les occurrences de chacun des nombres.
+        La fin de la saisie sera provoquée par la frappe d’un zéro au clavier.
+-->
+
+<!-- Début script HTML -->
+<html>
+    
+    <!-- Début entête script HTML -->
+    <head>
+        
+    	<!-- Balise meta -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    	
+    	<!-- Titre du script HTML -->
+        <title>CH6_5</title>
+    
+    </head>
+    
+    <!-- Début section body du script HTML -->
+    <body>
+        
+    	<!-- Titre du traitement -->
+        <h1>Editions ENI - JavaScript - Exercice CH6_5</h1>
+         
+    	<!-- Début script JavaScript -->
+        <script>
+        	
+        	/* Affichage du nom du script */
+        	alert("Exercice CH6_5");
+        	
+        	/* Déclaration de variables locales */
+            var histogramme = new Array;
+            var nblu, compteur1, compteur2, etoiles;
+        	
+			/* Mise à zéro du tableau histogramme */
+			for (compteur1=1; compteur1<=20; compteur1++)
+			{
+				histogramme[compteur1] = 0;
+			}
+
+			/* Saisie des nombres au clavier */
+			nblu = prompt("Nombre compris entre 1 et 20 ou 0 pour finir la saisie :");
+			nblu = parseInt(nblu);
+			while (nblu != 0)
+			{
+				histogramme[nblu] = histogramme[nblu] + 1;
+				nblu = prompt("Nombre compris entre 1 et 20 ou 0 pour finir la saisie :");
+				nblu = parseInt(nblu);}
+			
+			/* Affichage de l'histogramme */					
+			for (compteur1=1; compteur1<=20; compteur1++)
+			{
+				etoiles = "";
+				if (histogramme[compteur1] > 0)
+				{
+					for (compteur2=1; compteur2<=histogramme[compteur1]; compteur2++)
+					{
+						etoiles = etoiles + "*";
+					}
+					/* Affichage de la ligne d'étoiles */
+					document.write(compteur1 + " : " +  etoiles + "<br />");
+				}
+			}
+		
+        </script>
+        
+        <!-- Affichage du code source -->
+        <br /><br /><br />
+        <center>
+        <a href="JavaScript:window.location='view-source:' + window.location">
+            Code source
+        </a>
+        </center>
+        
+    </body>
+
+</html>

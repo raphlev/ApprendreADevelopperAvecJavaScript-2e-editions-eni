@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : JSON_01.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Utilisation de JSON - Présentation des notations
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>JSON_01</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - JSON_01</h1>
+
+		<!-- Début script JavaScript -->
+		<script type="text/javascript">
+		
+			/* Affichage du nom du script */
+			alert("JSON_01");
+
+			/* Définition de 3 objets JSON */
+			var voiture1 = {
+				code : "V001",
+				libelle : "Porsche 930 Turbo",
+				vitesse_maxi : 290
+			};
+			var voiture2 = {
+				code : "V002",
+				libelle : "Porsche 964 Turbo",
+				vitesse_maxi : 300
+			};
+			var voiture3 = {
+				code : "V003",
+				libelle : "Ferrari 430",
+				vitesse_maxi : 320
+			};
+
+			/* Définition d'un objet composite */
+			var allemandes = {
+				allemande1 : voiture1,
+				allemande2 : voiture2
+			};
+
+			/* Affichage de propriétés des objets
+			 voiture1 et voiture2 */
+			document.write("La " + voiture1.libelle + " -> " + voiture1.vitesse_maxi + "Km/h");
+			document.write("<hr />");
+			document.write("La " + voiture2.libelle + " -> " + voiture2.vitesse_maxi + "Km/h");
+
+			/* Modification de la propriété vitesse_maxi
+			 de l'objet voiture1 */
+			voiture1.vitesse_maxi = 260;
+
+			/* Affichage de propriétés de l'objet voiture1 */
+			document.write("<hr />");
+			document.write("La " + voiture1.libelle + " -> " + voiture1.vitesse_maxi + "Km/h");
+
+			/* Affichages de la propriété vitesse_maxi de l'objet
+			 voiture2 inclus dans l'objet allemandes */
+			document.write("<hr />");
+			document.write("Affichages via l'objet allemandes :");
+			document.write("<br />");
+			document.write("La " + allemandes.allemande2.libelle + " -> " + allemandes.allemande2.vitesse_maxi + "Km/h (syntaxe 1)");
+			document.write("<br />");
+			document.write("La " + allemandes["allemande2"]["libelle"] + " -> " + allemandes["allemande2"]["vitesse_maxi"] + "Km/h (syntaxe 2)");
+
+			/* Définition de 2 tableaux (libelles et vitesses_maxi) */
+			var libelles = ["Porsche 930 Turbo", "Porsche 964 Turbo", "Ferrai 430"];
+			var vitesses_maxi = [290, 300, 320];
+
+			/* Définition d'un objet JSON basé sur les tableaux
+			 libelles et vitesses_maxi */
+			var voitures = {
+				lib : libelles,
+				vit : vitesses_maxi
+			};
+
+			/* Affichage (via des tableaux) des propriétés
+			 de la 2ème voiture */
+			document.write("<hr />");
+			document.write("Affichage (via des tableaux) des propriétés de la 2ème voiture :");
+			document.write("<br />");
+			document.write(voitures.lib[1] + " -> " + voitures.vit[1] + " Km/h");
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

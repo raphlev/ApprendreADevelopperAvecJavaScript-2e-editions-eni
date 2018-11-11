@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : WINDOW_06.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Gestion de l'historique des pages
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>WINDOW_06</title>
+
+		<!-- Début script JavaScript -->
+		<script type="text/javascript">
+			/* Fonction revenirPagePrecedente */
+			function revenirPagePrecedente() {
+				/* Retour à la page précédente */
+				window.history.back()
+			}
+
+		</script>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - WINDOW_06</h1>
+
+		<!-- Début script JavaScript -->
+		<script type="text/javascript">
+		
+			/* Affichage du nom du script */
+			alert("WINDOW_06");
+
+			/*
+			 Informations sur l'URL de la page en cours
+			 /*
+
+			 /* Propriété host */
+			document.write("</br>Propriété location.host : " + window.location.host);
+
+			/* Propriété hostname */
+			document.write("</br>Propriété location.hostname : " + window.location.hostname);
+
+			/* Propriété href */
+			document.write("</br>Propriété location.href : " + window.location.href);
+
+			/* Propriété pathname */
+			document.write("</br>Propriété location.pathname : " + window.location.pathname);
+
+			/* Propriété port */
+			document.write("</br>Propriété location.port : " + window.location.port);
+
+		</script>
+
+		<!-- Retour à la page précédente -->
+		<div>
+			<input type="button" value="Retour à la page précédente" onclick="revenirPagePrecedente()" />
+		</div>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

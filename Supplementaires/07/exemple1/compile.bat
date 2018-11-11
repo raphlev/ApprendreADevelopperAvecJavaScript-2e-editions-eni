@@ -1,0 +1,1 @@
+tsc exemple.ts

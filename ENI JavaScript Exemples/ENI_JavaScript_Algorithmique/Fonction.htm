@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : Fonction.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 28/05/2013
+DATE DE DERNIERE MODIFICATION : 28/05/2013
+OBJET : Appeler une procédure affichant le double de deux paramètres effectifs passés en paramètres
+(les deux valeurs passées en paramètres seront à saisir au clavier)
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>Fonction</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice Fonction</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+			
+			/* Fonction maxi (détermination du maximum de deux chiffres) */
+			function maxi(x, y) {
+				/* Détermination du maximum */
+				if (x > y) {
+					return x;
+				} else {
+					return y;
+				}
+			}
+
+			/* Affichage du nom du script */
+			alert("Exercice Fonction");
+
+			/* Déclaration de variables locales */
+			var a, b, c, d;
+
+			/* Saisie des paramètres a et b */
+			a = parseInt(prompt("Paramètre a :"));
+			b = parseInt(prompt("Paramètre b :"));
+
+			/* Appel de la fonction maxi */
+			alert("Maximum : " + maxi(a, b));
+
+			/* Saisie des paramètres c et d */
+			c = parseInt(prompt("Paramètre c :"));
+			d = parseInt(prompt("Paramètre d :"));
+
+			/* Appel de la fonction maxi */
+			document.write("Maximum : " + maxi(c, d));
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

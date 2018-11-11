@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : base_01.htm
+Auteur : Christian VIGOUROUX
+Date de création : 19/04/2016
+Date de dernière modification : 19/4/2016
+Objet : 1er exemple d'application AngularJS
+-->
+
+<!-- Section HTML -->
+<html>
+
+  <!-- Section HEAD -->
+  <head>
+    <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <!-- Appel du Framework AngularJS -->
+    <script
+      src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+    </script>
+  </head>
+
+  <!-- Section BODY -->
+  <body>
+
+    <!-- Section DIV intégrant des directives AngularJS -->
+    <div ng-app="">
+
+      <!-- Utilisation de la police de caractères Arial -->
+      <font face="Arial">
+
+        <!-- Saisie de la marque préférée de voiture de sport -->
+        <p>Marque préférée de voiture de sport :
+        <input type="text" ng-model="marque"></p>
+
+        <!-- Message de confirmation -->
+        <!-- NB : {{marque}} est le nom de la variable saisie (ici marque) -->
+        Votre marque préférée est {{marque}}
+
+      </font>
+
+    </div>
+
+  </body>
+
+</html>

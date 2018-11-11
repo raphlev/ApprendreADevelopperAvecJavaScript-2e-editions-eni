@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH5_2.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Calculer la surface de deux cercles (ainsi que la différence entre ces deux surfaces)
+dont les rayons seront saisis au clavier avec possibilité de traiter n couplets
+NB : la saisie sera terminée par la frappe d'un zéro pour le premier rayon
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH5_2</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH5_2</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("Exercice CH5_2");
+
+			/* Déclaration de variables locales */
+			var rayon1, rayon2, surface1, surface2, difference, pi;
+
+			/* Initialisations */
+			pi = 3.14;
+
+			/*
+			Boucle de traitement
+			*/
+			/* Saisie du rayon du cercle 1 */
+			rayon1 = prompt("Rayon cercle 1 (0 si fin) :");
+			while (rayon1 != 0) {
+				/* Saisie du rayon du cercle 2 */
+				rayon2 = prompt("Rayon cercle 2 :");
+				/* Calculs */
+				surface1 = pi * rayon1 * rayon1;
+				surface2 = pi * rayon2 * rayon2;
+				difference = surface1 - surface2;
+				/* Affichage des résultats */
+				document.write("Surface cercle 1 : " + surface1 + "<br />");
+				document.write("Surface cercle 2 : " + surface2 + "<br />");
+				document.write("Différence de surface : " + difference + "<br /><br />");
+				/* Saisie du rayon du cercle 1 */
+				rayon1 = prompt("Rayon cercle 1 (0 si fin) :");
+			}
+
+			/* Fin de traitement */
+			document.write("Travail terminé");
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

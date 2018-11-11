@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : controleur_02.htm
+Auteur : Christian VIGOUROUX
+Date de création : 19/04/2016
+Date de dernière modification : 19/4/2016
+Objet : Contrôleur embarquant un service Angular
+-->
+
+<!-- Balise HTML -->
+<html lang="fr-FR">
+
+    <!-- Section HEAD -->
+    <head>
+        <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">     
+        <!-- Appel du Framework Angular -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+        </script>
+    </head>
+
+    <!-- Section BODY intégrant des directives Angular -->
+    <body ng-app="monApplication">
+
+        <!-- Utilisation de la police de caractères Arial -->
+        <font face="Arial">
+            
+            <!-- Affichage de la variable Angular monMessage -->
+            <div ng-controller="monControleur">
+                {{monMessage}}
+            </div>
+
+        </font>
+
+        <!-- Module et contrôleur Angular -->
+        <script>
+
+            // Définition du module
+            var application = angular.module('monApplication', []);
+        
+            // Définition du contrôleur monControleur
+            // NB : $timeout est un service Angular (non développé par l'auteur de ce script)
+            application.controller('monControleur', function($scope, $timeout) {
+                
+                // Afficage d'un message initial
+                $scope.monMessage = "Ma marque de voiture favorite est Porsche";
+                
+                // Utilisation du service Angular $timeout
+                $timeout(function () {
+                    $scope.monMessage = "Finalement au bout de 5 secondes, je change d'avis, c'est Ferrari";
+                }, 5000);
+            });
+
+        </script>
+
+    </body>
+
+</html>

@@ -1,0 +1,32 @@
+<voitures>
+	<voiture origine="ITALIE" groupe="FIAT">
+    	<marque>FERRARI</marque>
+    	<modele>512 BB</modele>
+    	<moteur>V12 FERRARI</moteur>
+    	<cylindree>5</cylindree>
+    	<puissance>380</puissance>
+    	<vitesse_pointe>280</vitesse_pointe>
+    	<site_web>
+    		http://fr.wikipedia.org/wiki/Ferrari_Berlinetta_Boxer
+    	</site_web>
+    </voiture>
+    <voiture origine="ITALIE" groupe="VOLKSWAGEN">
+    	<marque>LAMBORGHINI</marque>
+    	<modele>MIURA</modele>
+    	<moteur>V12 LAMBORGHINI</moteur>
+    	<cylindree>3.9</cylindree>
+    	<puissance>385</puissance>
+    	<vitesse_pointe>280</vitesse_pointe>
+    	<site_web>https://fr.wikipedia.org/wiki/Lamborghini_Miura</site_web>
+    	<site_web>http://en.wikipedia.org/wiki/Lamborghini_Miura</site_web>
+    </voiture>
+    <voiture origine="ALLEMAGNE" groupe="VOLKSWAGEN">
+    	<marque>PORSCHE</marque>
+    	<modele>964 TURBO</modele>
+    	<moteur>FLAT 6 PORSCHE</moteur>
+    	<cylindree>3.6</cylindree>
+    	<puissance>360</puissance>
+    	<vitesse_pointe>295</vitesse_pointe>
+    	<site_web>https://en.wikipedia.org/wiki/Porsche_964</site_web>
+    </voiture>
+</voitures>

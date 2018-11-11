@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH4_5.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Un robot conduit une voiture. Il peut exécuter 3 actions «s’arrêter», «ralentir» et «passer»
+en fonction de la couleur des feux (rouge, orange, vert) qui sera une variable saisie. Ecrire un algorithme programmant le robot.
+NB : Dans les corrigés proposés, COULEUR_FEU <- Lire représente une acquisition d'information faite par une caméra numérique
+«embarquée» qui détecterait la couleur du feu tricolore.
+Les messages document.write("Je stoppe"), ... seraient des instructions "électroniques" données au véhicule par le robot.
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH4_5</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH4_5</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("Exercice CH4_5");
+
+			/* Déclaration de variables locales */
+			var couleur_feu;
+
+			/* Saisie de la couleur du feu */
+			couleur_feu = prompt("Couleur du feu (rouge, orange, vert) :");
+
+			/* Test de la couleur du feu et action déduite */
+			if (couleur_feu == "rouge") {
+				document.write("Je stoppe");
+			} else {
+				if (couleur_feu == "orange") {
+					document.write("J'évite de passer");
+				} else {
+					if (couleur_feu == "vert") {
+						document.write("Je passe prudemment");
+					} else {
+						document.write("Je stoppe par prudence");
+					}
+				}
+			}
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

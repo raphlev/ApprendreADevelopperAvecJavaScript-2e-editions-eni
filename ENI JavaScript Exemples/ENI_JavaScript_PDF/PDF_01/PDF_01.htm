@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : PDF_01.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Génération PDF
+REFERENCE : http://fr.pdf24.org/javascript-pdf-api.html
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<!-- Titre du script HTML -->
+		<title>PDF_01</title>
+
+		<!-- Intégration de la librairie Javascript pdf24.js -->
+		<script type="text/javascript" src="pdf24.js"></script>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - PDF_01</h1>
+
+		<!-- Début script JavaScript -->
+		<script type="text/javascript">
+		
+			/* Affichage du nom du script */
+			alert("PDF_01");
+
+			/*
+			 Création du fichier PDF et paramétrages de base
+			 */
+			/* Instanciation d'un nouveau document */
+			var fichierPDF = new PDF24Doc();
+			/* Définition du jeu de caractères */
+			fichierPDF.setCharset("UTF-8");
+			/* Nom du fichier (suffixé par pdf par l'API) */
+			fichierPDF.setFilename("test");
+			/* Définition du format de la page (A4 en format portrait) */
+			fichierPDF.setPageSize(210, 297);
+
+			/*
+			 Création du contenu du document PDF
+			 */
+			var contenuPDF = new PDF24Element();
+			contenuPDF.setTitle("Ceci est un document généré par pdf24.js en PDF");
+			contenuPDF.setUrl("http://www.pdf24.org");
+			contenuPDF.setAuthor("Christian VIGOUROUX");
+			contenuPDF.setDateTime("2010-04-15 8:00");
+			var texte = "";
+			texte = "Le contenu du document supporte des mises en forme HTML avec les balises habituelles, comme ici du <b>gras</b> !!!<br><br>";
+			texte += "<table border=1>";
+			texte += "<tr><td><font color=blue>Code</font></td><td><font color=blue>Libellé</font></td><td><font color=blue>Vitesse maxi</font></td></tr>";
+			texte += "<tr><td>V001</td><td>Porsche 930 Turbo</td><td align=right>290</td></tr>";
+			texte += "<tr><td>V002</td><td>Porsche 964 Turbo</td><td align=right>300</td></tr>";
+			texte += "<tr><td>V003</td><td>Ferrari 430</td><td align=right>320</td></tr>";
+			contenuPDF.setBody(texte);
+
+			/*
+			 Ajout du contenu dans le document PDF
+			 */
+			fichierPDF.addElement(contenuPDF);
+
+			/*
+			 Paramétrage de l'envoi du fichier PDF par mail
+			 */
+			fichierPDF.setEmailTo("christian.vigouroux@online.fr");
+			fichierPDF.setEmailFrom("christian.vigouroux@univ-rennes1.fr");
+			fichierPDF.setEmailSubject("Fichier créé par pdf24");
+			fichierPDF.setEmailBody("Le fichier PDF est joint à ce mail. Merci à www.pdf24.org!");
+			fichierPDF.setEmailBodyType("text");
+
+			/*
+			 Création du fichier PDF
+			 */
+			fichierPDF.create();
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br>
+		<br>
+		<br>
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

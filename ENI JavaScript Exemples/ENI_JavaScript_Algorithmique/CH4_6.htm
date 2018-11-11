@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH4_6.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : A partir de la saisie de deux nombres a et b, résoudre l’équation aX+b=0
+- Si a = 0 et b = 0 Alors l’ensemble des solutions est R
+- Si a = 0 et b <> 0 Alors l’ensemble des solutions est vide
+- Si a <> 0 Alors la solution est –b / a
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH4_6</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH4_6</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("Exercice CH4_6");
+
+			/* Déclaration de variables locales */
+			var a, b;
+
+			/* Saisie du 1er nombre */
+			a = prompt("Nombre n° 1 :");
+
+			/* Saisie du 2ème nombre */
+			b = prompt("Nombre n° 2 :");
+
+			/* Affichage des valeurs a et b saisies au clavier */
+			document.write("a : " + a + "<br />");
+			document.write("b : " + b + "<br />");
+			document.write("Résolution de " + a + "X+" + b + "=0<br/>");
+
+			/* Résolution de l’équation */
+			if (a == 0) {
+				if (b == 0) {
+					document.write("L’ensemble des solutions est R");
+				} else {
+					document.write("L’ensemble des solutions est vide");
+				}
+			} else {
+				document.write("La solution unique est : " + (-b / a));
+			}
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

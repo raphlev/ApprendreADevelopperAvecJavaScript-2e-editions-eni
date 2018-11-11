@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : liste_express_05.hbs
+Auteur : Christian VIGOUROUX
+Date de création : 19/04/2016
+Date de dernière modification : 19/4/2016
+Objet : Listage des enregistrements de la collection voitures
+        de la BDD Mongo DB voitures_sport
+-->
+
+<!-- Balise HTML -->
+<html>
+
+  <!-- Section HEAD -->
+  <head>
+    <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  </head>
+
+  <!-- Section BODY -->
+  <body>
+
+    <!-- Utilisation de la police de caractères Arial -->
+    <font face="Arial">
+
+      <!-- Affichage de contrôle de l'objet JSON voitures_sport -->
+      <h1><b>Liste des voitures allemandes</b></h1>
+      <br />
+
+      <!-- Boucle de parcours du tableau voitures_sport
+           et placement dans un tableau HTML -->
+      <table border="1" width="40%" align="left">
+        <!-- Définition des intitulés de colonnes -->
+        <tr>
+          <th>Marque</th>
+          <th>Modèle</th>
+          <th>Pays</th>
+        </tr>
+        <!-- Placement des enregistrements dans le tableau HTML -->
+        {{#each voitures}}
+          <tr>
+            <td>{{marque}}</td>
+            <td>{{modele}}</td>
+            <td>{{pays}}</td>
+          </tr>
+        {{/each}}
+      </table>
+
+    </font>
+
+  </body>
+
+</html>

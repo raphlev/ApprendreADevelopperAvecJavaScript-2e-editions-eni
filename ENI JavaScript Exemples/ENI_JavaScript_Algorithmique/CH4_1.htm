@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH4_1.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Ecrire un algorithme qui permettra l’extraction des initiales d’une personne dont le prénom et le nom
+seront saisis au clavier (exemple CV pour Christian VIGOUROUX)
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH4_1</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH4_1</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+			/* Affichage du nom du script */
+			alert("Exercice CH4_1");
+
+			/* Déclaration de variables locales */
+			var a, b, c, delta;
+
+			/* Saisie des paramètres */
+			a = prompt("a :");
+			b = prompt("b :");
+			c = prompt("c :");
+
+			/* Calcul du discriminant */
+			delta = (parseInt(b) * parseInt(b)) - (4 * parseInt(a) * parseInt(c));
+
+			/* Affichage des paramètres */
+			document.write("a : " + a + "<br />");
+			document.write("b : " + b + "<br />");
+			document.write("c : " + c + "<br />");
+			document.write("Discriminant delta : " + delta + "<br />");
+
+			/* Détermination des racines */
+			if (delta < 0) {
+				document.write("Pas de solutions");
+			} else {
+				if (delta == 0) {
+					document.write("Solution unique : " + (-b / (2 * a)));
+				} else {
+					document.write("Solution n°1 : " + (-b + Math.sqrt(delta)) / (2 * a) + "<br />");
+					document.write("Solution n°2 : " + (-b - Math.sqrt(delta)) / (2 * a));
+				}
+
+			}
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

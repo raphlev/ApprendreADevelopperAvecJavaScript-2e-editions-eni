@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : SESSION_STORAGE_01.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Stockage avec utilisation de sessionStorage
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>SESSION_STORAGE</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - SESSION_STORAGE</h1>
+
+		<!-- Définition de la division dans laquelle le nombre de visites sera affiché -->
+		Nombre de visite(s) sur cette page : <div id="visites"></div>
+
+		<!-- Début script JavaScript -->
+		<script type='text/javascript'>
+		
+			/* Affichage du nom du script */
+			alert("SESSION_STORAGE");
+
+			/* Détection de la possibilité de faire un stockage local via sessionStorage */
+			if ( typeof sessionStorage != "undefined") {
+
+				/* Récupération de la valeur du nombre de visite(s) depuis le stockage sessionStorage */
+				var nombreVisites = sessionStorage.getItem("nombreVisites");
+
+				/* Vérification de la présence du compteur de visite(s) */
+				if (nombreVisites != null) {
+					/* Conversion en nombre entier */
+					nombreVisites = parseInt(nombreVisites);
+					/* Incrémentation du nombre de visite(s) */
+					nombreVisites++;
+				} else {
+					/* Initialisation à 1, il s'agit de la première visite */
+					nombreVisites = 1;
+				}
+
+				/* Affichage du compteur de vistes lu dans une fenêtre alert */
+				// alert("Nombre de visites : " + nombreVisites);
+
+				/* Stockage dans le stockage sessionStorage */
+				sessionStorage.setItem("nombreVisites", nombreVisites);
+
+				// Affichage dans la page
+				document.getElementById("visites").innerHTML = nombreVisites;
+
+			} else {
+				/* Message d'erreur (pas de possibilité de stockage sessionStorage) */
+				alert("sessionStorage n'est pas supporté");
+			}
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : controleur_03.htm
+Auteur : Christian VIGOUROUX
+Date de création : 19/04/2016
+Date de dernière modification : 19/4/2016
+Objet : Contrôleur embarquant un service développé par l'auteur
+-->
+
+<!-- Balise HTML -->
+<html lang="fr-FR">
+
+    <!-- Section HEAD -->
+    <head>
+        <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">     
+        <!-- Appel du Framework Angular -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+        </script>
+    </head>
+
+    <!-- Section BODY intégrant des directives Angular -->
+    <body ng-app="monApplication">
+
+        <!-- Utilisation de la police de caractères Arial -->
+        <font face="Arial">
+            
+            <!-- Division gérée par le contrôleur monControleur -->
+            <div ng-controller="monControleur">
+
+                <!-- Bouton pour accélerer -->
+                <button ng-click="accelerer()">Accélérer (clic sur le bouton)</button>
+
+                <!-- Affichage de la variable Angular vitesseAuCompteur -->
+                <br><br>
+                Vitesse au compteur : {{vitesseAuCompteur}} km/h
+            
+            </div>
+
+        </font>
+
+        <!-- Module et contrôleur Angular -->
+        <script>
+
+            // Définition du module
+            var application = angular.module('monApplication', []);
+            
+            // Définition du contrôleur monControleur
+            // NB : Pas de $ devant le nom du service serviceAccelerer
+            application.controller('monControleur', function($scope, serviceAccelerer) {
+
+                // Vitesse initiale
+                $scope.vitesseAuCompteur = 200;
+
+                // Fonction accelerer
+                $scope.accelerer = function() {
+                    $scope.vitesseAuCompteur = serviceAccelerer.vitesseVoiture($scope.vitesseAuCompteur);
+                }           
+            });
+                
+            // Définition du service serviceAccelerer
+            application.service('serviceAccelerer', function() {
+                this.vitesseVoiture = function (vitesse) {
+                    return vitesse + 5;
+                }
+            });
+
+        </script>
+
+    </body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH3_4.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Ecrire un algorithme qui calcule (et affiche) le salaire net de Mr Dupont sachant que celui-ci est fonctionnaire
+et totalise 400 points, que la valeur du point est de 10,50 F et que les retenues sont de 1/10 du salaire brut.
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH3_4</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH3_4</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("Exercice CH3_4");
+
+			/* Déclaration de variables locales */
+			var nb_points, salaire_brut, salaire_net, valeur_point, taux_retenues, retenues;
+
+			/* Initialisation des variables */
+			nb_points = 400;
+			valeur_point = 10.5;
+			taux_retenues = 0.1;
+
+			/* Calculs */
+			salaire_brut = nb_points * valeur_point;
+			retenues = salaire_brut * taux_retenues;
+			salaire_net = salaire_brut - retenues;
+
+			/* Affichage des résultats */
+			document.write("Nombre de points : " + nb_points + "<br />");
+			document.write("Valeur du point : " + valeur_point + "<br />");
+			document.write("Taux de retenues : " + taux_retenues + "<br />");
+			document.write("Salaire Brut : " + salaire_brut + "<br />");
+			document.write("Retenues : " + retenues + "<br />");
+			document.write("Salaire Net : " + salaire_net);
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

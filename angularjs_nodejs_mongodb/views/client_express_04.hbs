@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : client_express_04.hbs
+Auteur : Christian VIGOUROUX
+Date de création : 19/04/2016
+Date de dernière modification : 19/4/2016
+Objet : Passage de valeurs de champs à un serveur Express js (express_04.js)
+        via la méthode post
+-->
+
+<!-- Balise HTML -->
+<html>
+
+  <!-- Section HEAD -->
+  <head>
+    <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  </head>
+
+  <!-- Section BODY -->
+  <body>
+
+    <!-- Utilisation de la police de caractères Arial -->
+    <font face="Arial">
+
+      <!-- Formulaire avec transfert de champs vers le serveur -->
+      <form method="post">
+        <!-- Champ marque -->
+        Marque : <input type="text" name="marque" placeholder="Marque"><br />
+        <!-- Champ modele -->
+        Modèle : <input type="text" name="modele" placeholder="Modèle"><br />
+        <!-- Champ pays -->
+        Modèle : <input type="text" name="pays" placeholder="Pays"><br /><br />
+        <!-- Bouton submit -->
+        <input
+          type="submit"
+          value="Envoi au serveur Express js & enregistrement Mongo DB"
+        />
+      </form>
+
+    </font>
+
+  </body>
+
+</html>

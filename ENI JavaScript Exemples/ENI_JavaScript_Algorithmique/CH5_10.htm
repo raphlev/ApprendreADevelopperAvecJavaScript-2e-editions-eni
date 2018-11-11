@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH5_10.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Compter les occurrences d’une lettre dans un mot (lettre et mot à saisir au clavier)
+Exemple :
+Mot à analyser : VIGOUROUX
+Lettre à rechercher dans le mot : U
+Réponse : La lettre U est présente 2 fois dans le mot VIGOUROUX
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH5_10</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH5_10</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("Exercice CH5_10");
+
+			/* Déclaration de variables locales */
+			var mot, lettre, compteur, nb_occurrences;
+
+			/* Saisie du mot */
+			mot = prompt("Mot à analyser :");
+
+			/* Saisie de la lettre à rechercher */
+			lettre = prompt("Lettre à chercher :");
+
+			/* Analyse du mot */
+			nb_occurrences = 0;
+			for ( compteur = 0; compteur <= mot.length; compteur++) {
+				if (mot.charAt(compteur) == lettre) {
+					nb_occurrences = nb_occurrences + 1;
+				}
+			}
+
+			/* Affichage du résultat */
+			document.write(mot, " contient " + nb_occurrences + " fois " + lettre);
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

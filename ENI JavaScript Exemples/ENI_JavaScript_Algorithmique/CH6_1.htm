@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH6_1.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Problème des éphémérides : Etant donné un jour entier N inférieur ou égal à 365,
+déterminer à quel mois de l'année et à quel jour il correspond, l'année étant non bissextile.
+Exemple : 85 correspond au 26 Mars
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH6_1</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH6_1</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("Exercice CH6_1");
+
+			/* Déclaration de variables locales */
+			/*
+			n         : Nombre compris entre 1 et 365 (année non bissextile)
+			i         : Compteur de boucle
+			cumul     : Cumul du nombre de jours des cellules du tableau mois parcourues
+			jour      : est le n° de jour dans le mois
+			mois      : Tableau des nombres de jouyrs de chacun des mois
+			nom_mois  : Tableau des libellées de chacun des mois
+			*/
+			var n, i, cumul, jour;
+			var mois = new Array;
+			var nom_mois = new Array;
+
+			/* Initialisations */
+			mois[1] = 31;
+			mois[2] = 28;
+			mois[3] = 31;
+			mois[4] = 30;
+			mois[5] = 31;
+			mois[6] = 30;
+			mois[7] = 31;
+			mois[8] = 31;
+			mois[9] = 30;
+			mois[10] = 31;
+			mois[11] = 30;
+			mois[12] = 31;
+			nom_mois[1] = "Janvier";
+			nom_mois[2] = "Février";
+			nom_mois[3] = "Mars";
+			nom_mois[4] = "Avril";
+			nom_mois[5] = "Mai";
+			nom_mois[6] = "Juin";
+			nom_mois[7] = "Juillet";
+			nom_mois[8] = "Aout";
+			nom_mois[9] = "Septembre";
+			nom_mois[10] = "Octobre";
+			nom_mois[11] = "Novembre";
+			nom_mois[12] = "Décembre";
+
+			/* Saisie du n° d'ordre du jour dans l'annéee */
+			n = prompt("N° du jour dans l'année (compris entre 1 et 365) :");
+
+			/* Calculs */
+			i = 1;
+			cumul = 0;
+			while (cumul < n) {
+				cumul = cumul + mois[i];
+				i = i + 1;
+			}
+
+			/* Affichage du résultat F*/
+			jour = n - (cumul - mois[i - 1]);
+			document.write(n + " est le jour n° " + jour + " de " + nom_mois[i - 1]);
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

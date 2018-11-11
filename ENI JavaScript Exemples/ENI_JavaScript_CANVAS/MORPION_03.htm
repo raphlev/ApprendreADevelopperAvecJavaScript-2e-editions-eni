@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : MORPION_03.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Jeu du Morpion (TicTacToe) - Version 3
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>MORPION_03</title>
+
+		<!-- Début script JavaScript -->
+		<script type="text/javascript">
+		
+			/* Fonction tracerGrille */
+			function tracerGrille(x, y, cote) {
+
+				/*
+				Tracé dans le canvas
+				*/
+
+				/* Définition des propriétés des traits */
+				contexteCanvas.strokeStyle = "black";
+				contexteCanvas.lineWidth = 1;
+
+				/* Définition des propriétés de la grille */
+				var xDepart = x;
+				var yDepart = y;
+				var longueurCote = cote;
+
+				/* Début du parcours en ligne brisée */
+				contexteCanvas.beginPath();
+
+				/* Point de départ du tracé (x, y) */
+				contexteCanvas.moveTo(xDepart, yDepart);
+
+				/* Tracé du trait haut horizontal */
+				contexteCanvas.lineTo(xDepart + longueurCote, yDepart);
+
+				/* Tracé du trait droit vertical */
+				contexteCanvas.lineTo(xDepart + longueurCote, yDepart + longueurCote);
+
+				/* Tracé du trait bas horizontal */
+				contexteCanvas.lineTo(xDepart, yDepart + longueurCote);
+
+				/* Tracé du trait gauche vertical */
+				contexteCanvas.lineTo(xDepart, yDepart);
+
+				/* Fin de parcours en ligne brisée (facultatif) */
+				contexteCanvas.closePath();
+
+				/* Tracé effectif */
+				contexteCanvas.stroke();
+
+			}
+
+		</script>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - MORPION_03</h1>
+
+		<!-- Début script JavaScript -->
+		<script type="text/javascript">
+		
+			/* Affichage du nom du script */
+			alert("MORPION_03");
+
+		</script>
+
+		<!-- Mise en en place de l'élément HTML canvas -->
+		<!-- NB : - Largeur du canvas : 1000 -->
+		<!--      - Hauteur du canvas : 800 -->
+		<canvas id="grilleMorpion" width="1000" height="800">
+			Attention votre navigateur ne supporte pas l'élément Canvas
+		</canvas>
+
+		<!-- Code Javascript associé au canvas -->
+		<script type="text/javascript">
+		
+			/* Définition de l'emplacement du canvas */
+			var emplacementCanvas = document.getElementById("grilleMorpion");
+
+			/* Définition du contexte du canvas (2D) */
+			var contexteCanvas = emplacementCanvas.getContext("2d");
+
+			/* Tracé de la grille */
+			for (ligne = 1; ligne <= 5; ligne++) {
+				for (colonne = 1; colonne <= 5; colonne++) {
+					tracerGrille(ligne * 100, colonne * 100, 100);
+
+				}
+
+			}
+
+			/* Tracé d'un carré de couleur verte en ligne 1 & colonne 2 */
+			var x, y, cote;
+			contexteCanvas.fillStyle = "green";
+			ligne = 1;
+			colonne = 2;
+			x = (colonne * 100) + 20;
+			y = (ligne * 100) + 20;
+			cote = 60;
+			// alert("x = " + x);
+			// alert("y = " + y);
+			// alert("cote = " + cote);
+			contexteCanvas.fillRect(x, y, cote, cote);
+
+			/* Tracé d'un cercle de couleur rouge en ligne 2 & colonne 2 */
+			var xCentreCercle, yCentreCercle, rayonCercle;
+			contexteCanvas.fillStyle = "red";
+			ligne = 2;
+			colonne = 2;
+			xCentreCercle = (colonne * 100) + 50;
+			;
+			yCentreCercle = (ligne * 100) + 50;
+			rayonCercle = 30;
+			// alert("xCentreCercle = " + xCentreCercle);
+			// alert("yCentreCercle = " + yCentreCercle);
+			// alert("rayonCercle = " + rayonCercle);
+			contexteCanvas.beginPath();
+			contexteCanvas.arc(xCentreCercle, yCentreCercle, rayonCercle, 0, 2 * Math.PI, false);
+			contexteCanvas.fill();
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

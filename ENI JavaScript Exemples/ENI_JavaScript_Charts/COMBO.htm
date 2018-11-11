@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!--
+NOM DU SCRIPT : COMBO.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Tracé d'un graphique de type histogramme (Exemple Google Charts)
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>COMBO</title>
+
+		<!-- Chargement de l'API Google Chart -->
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+		<!-- Chargement du module visualization en version 1 avec en option le package corechart -->
+		<script type="text/javascript">
+			google.load('visualization', '1', {
+				packages : ['corechart']
+			});
+		</script>
+
+		<!-- Définition de l'histogramme -->
+		<script type="text/javascript">
+
+			/* Fonction tracerGraphe */
+			function tracerGraphe()
+			{
+			
+			/* Données à représenter graphiquement */
+			var donnees = google.visualization.arrayToDataTable([
+			['Année', 'Allemagne', 'France', 'Italie', 'Moyenne'],
+			['2010', 100, 110, 150, 120],
+			['2011', 120, 130, 200, 150],
+			['2012', 140, 120, 220, 160],
+			]);
+			
+			/* Options de représentation graphique */
+			/* NB1: La 4ème série (numéroration à partir de 0 des séries) est une moyenne représentée par une ligne */
+			/* NB2 : Pour les nombreuses options veuillez consulter
+			/*       https://developers.google.com/chart/interactive/docs/gallery/combochart */
+			var options =
+			{
+			title : 'Production annuelle du produit LAMBDA par pays',
+			vAxis: {title: "Tonnes"},
+			hAxis: {title: "Années"},
+			seriesType: "bars",
+			series: {3: {type: "line"}}
+			};
+			
+			/* Instanciation du graphique */
+			var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+			
+			/* Dessin du graphique */
+			chart.draw(donnees, options);
+			
+			}
+			
+			/* Affichage automatique du graphique */
+			google.setOnLoadCallback(tracerGraphe);
+
+		</script>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - COMBO</h1>
+
+		<!-- Début script JavaScript -->
+		<script type="text/javascript">
+		
+			/* Affichage du nom du script */
+			alert("COMBO");
+
+		</script>
+
+		<!-- Définition de la division d'affichage du graphique -->
+		<div id="chart_div" style="width: 900px; height: 500px;"></div>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

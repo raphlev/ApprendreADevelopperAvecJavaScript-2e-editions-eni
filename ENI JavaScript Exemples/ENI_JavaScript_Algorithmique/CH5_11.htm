@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH5_11.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Lire n nombres entiers non nuls (liste terminée par un zéro) et éditer le nombre d'entiers positifs et négatifs de la série
+Exemple :
+Série de chiffres : 5 6 3 -5 4 -6 13 0
+Réponse : 5 chiffres positifs et 2 chiffres négatifs
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH5_11</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH5_11</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("Exercice CH5_11");
+
+			/* Déclaration de variables locales */
+			var nblu, cpos, cneg;
+
+			/* Initialisations */
+			cpos = 0;
+			cneg = 0;
+
+			/*
+			Boucle de traitement
+			*/
+			/* Saisie d'un premier nombre */
+			nblu = prompt("Nombre (0 pour finir) :");
+			/* Boucle pour les nombres suivants */
+			while (nblu != 0) {
+				/* Test du nombre lu */
+				if (nblu > 0) {
+					cpos = cpos + 1;
+				} else {
+					cneg = cneg + 1;
+				}
+				/* Saisie d'un nouveau nombre */
+				nblu = prompt("Nombre (0 pour finir) :");
+			}
+
+			/* Affichage des résultats */
+			document.write(cpos, " nombre(s) positif(s) et " + cneg + " nombre(s) négatif(s)");
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : mysql_02.htm
+Auteur : Christian VIGOUROUX
+Date de création : 19/04/2016
+Date de dernière modification : 19/4/2016
+Objet : Listage des enregistrements de la table MySQL voitures
+        (filtrage sur un pays)
+-->
+
+<!-- Balise HTML -->
+<html>
+
+  <!-- Section HEAD -->
+  <head>
+    <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <!-- Appel du Framework AngularJS -->
+    <script
+      src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+    </script>
+    <!-- Appel du contrôleur de l'application (fichier Javascript externe) -->
+    <script src="mysql_02.js" type="text/javascript"></script>
+  </head>
+
+  <!-- Section BODY -->
+  <body>
+
+    <!-- Script HTML intégrant des directives AngularJS -->
+    <div ng-app="monApplication" ng-controller="monControleur">
+
+      <!-- Utilisation de la police de caractères Arial -->
+      <font face="Arial">
+
+        <!-- Saisie d'un filtre sur le champ pays via un champ input -->
+        <p>
+          Pays de vos voitures de sport préférées (Tous/Allemagne/Italie) :
+          <input type="text" ng-model="paysMarquesPreferees">
+        </p>
+        <button
+          type="submit"
+          ng-click="listerVoitures()">
+          Requête PHP/MySQL
+        </button><br>
+
+        <!-- Affichage de contrôle de l'objet JSON voitures -->
+        <br />
+        {{voitures}}
+        <br /><br />
+
+        <!-- Boucle de parcours du tableau voitures
+             et placement dans un tableau HTML -->
+        <table border="1" width="40%" align="left">
+          <!-- Définition des intitulés de colonnes -->
+          <tr>
+            <th>Marque</th>
+            <th>Modèle</th>
+            <th>Pays</th>
+          </tr>
+          <!-- Placement des enregistrements dans le tableau HTML -->
+          <tr ng-repeat="voiture in voitures">
+            <td>{{voiture.marque}}</td>
+            <td>{{voiture.modele}}</td>
+            <td>{{voiture.pays}}</td>
+           </tr>
+         </table>
+
+      </font>
+
+    </div>
+
+  </body>
+
+</html>

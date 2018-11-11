@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : POO_05.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Approche POO en Javascript
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>POO_05</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - POO_05</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("POO_05");
+
+			/* Définition d'une fonction constructeur de nom Voiture */
+			var Voiture = function() {
+				/* Attribut(s) de l'objet */
+				this.possedeMoteur = true;
+				/* Méthode(s) de l'objet */
+				this.avancer = function() {
+					document.write("avance");
+				}
+				this.reculer = function() {
+					document.write("recule");
+				}
+			}
+			/* Instanciation d'un objet simca1100 via le constructeur Voiture */
+			var simca1100 = new Voiture();
+
+			/* Instanciation d'un objet renault12 via le constructeur Voiture */
+			var renault12 = new Voiture();
+
+			/* Test d'égalité des méthodes avancer des objets simca1100 et renault12 */
+			if (simca1100.avancer == renault12.avancer) {
+				document.write("Méthode avancer partagée par les objets simca1100 et Renault12</br>");
+			} else {
+				document.write("Méthode avancer non partagée par les objets simca1100 et Renault12</br>");
+			}
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br>
+		<br>
+		<br>
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

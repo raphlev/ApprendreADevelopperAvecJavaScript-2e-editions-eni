@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!-- NOM DU SCRIPT : FORM_06.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Gestion de formulaire  (contrôle de validité d'une adresse email)
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type"
+		content="text/html; charset=utf-8" />
+		<!-- Titre du script HTML -->
+		<title>FORM_06</title>
+
+		<!-- Début script JavaScript -->
+		<script type='text/javascript'>
+		
+			/* Fonction de test de la validité de la structure d'une adresse email */
+			function controleEmail(email, messageAlerte) {
+				/* Définition des valeurs acceptées */
+				var valeursAcceptees = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+				/* Test de la structure de l'adresse Email */
+				if (email.value.match(valeursAcceptees)) {
+					/* Valeur de retour */
+					alert("Structure d'adresse Email correcte");
+					return true;
+				} else {
+					/* Affichage d'un message d'alerte */
+					alert(messageAlerte);
+					/* Focus sur le champ en erreur */
+					email.focus();
+					/* Valeur de retour */
+					return false;
+				}
+			}
+
+		</script>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - FORM_06</h1>
+
+		<!-- Début script JavaScript -->
+		<script type='text/javascript'>
+		
+			/* Affichage du nom du script */
+			alert("FORM_06");
+
+		</script>
+
+		<!-- Formulaire de saisie HTML -->
+		<form>
+			Email :
+			<input type='text' id='email'/>
+			<input type='button'
+			onclick="controleEmail(document.getElementById('email'), 'Adresse Email non valide')"
+			value='Validation saisie' />
+		</form>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

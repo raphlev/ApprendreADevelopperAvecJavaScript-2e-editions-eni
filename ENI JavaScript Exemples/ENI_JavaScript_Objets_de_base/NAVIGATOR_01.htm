@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : NAVIGATOR_01.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Gestion d'un timer
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>NAVIGATOR_01</title>
+
+		<!-- Début script JavaScript -->
+		<script type="text/javascript">
+		
+			/* Fonction testerNavigateur */
+			function testerNavigateur() {
+				var caracteristiquesNavigateur = "";
+				caracteristiquesNavigateur = "Code du navigateur : " + navigator.appCodeName + "<br />";
+				caracteristiquesNavigateur += "Nom du navigateur : " + navigator.appName + "<br />";
+				caracteristiquesNavigateur += "Version : " + navigator.appVersion + "<br />";
+				caracteristiquesNavigateur += "Support des cookies : " + navigator.cookieEnabled + "<br />";
+				caracteristiquesNavigateur += "Système d'exploitation : " + navigator.platform + "<br />";
+				caracteristiquesNavigateur += "User-agent header: " + navigator.userAgent + "<br />";
+				caracteristiquesNavigateur += "User-agent language: " + navigator.systemLanguage + "<br />";
+
+				/* Affichage des caractéristiques du navigateur */
+				document.getElementById("affichageInfosNavigateur").innerHTML = caracteristiquesNavigateur;
+
+			}
+
+		</script>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - NAVIGATOR_01</h1>
+
+		<!-- Début script JavaScript -->
+		<script type="text/javascript">
+		
+			/* Affichage du nom du script */
+			alert("NAVIGATOR_01");
+
+		</script>
+
+		<!-- Appel de la fonction d'affichage des caractéristiques du navigateur -->
+		<div>
+			<input
+			type="button"
+			value="Caractéristiques du navigateur"
+			onclick="testerNavigateur()"
+			/>
+		</div>
+
+		<!-- Division d'affichage des caractéristiques du navigateur -->
+		<br />
+		<br />
+		<div id="affichageInfosNavigateur"></div>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

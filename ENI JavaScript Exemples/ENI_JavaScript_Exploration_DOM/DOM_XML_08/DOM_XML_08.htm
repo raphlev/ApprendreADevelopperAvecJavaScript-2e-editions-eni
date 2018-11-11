@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : DOM_XML_08.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Gestion DOM - Accès un noeud parent (fichier voitures.xml)
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>DOM_XML_08</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - DOM_XML_08</h1>
+
+		<!-- Début script JavaScript -->
+		<script type="text/javascript">
+		
+			/* Affichage du nom du script */
+			alert("DOM_XML_08");
+
+			/* Création d'un objet XMLHttpRequest pour échanger des données avec le serveur au format texte, XML ou JSON */
+			/* NB : Les fichiers XML sont automatiquement parsés par l'objet et accessibles par les méthodes du DOM */
+			if (window.XMLHttpRequest) {
+				// Code spécifique pour les navigateurs IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+			} else {
+				// Code spécifique pour les navigateurs IE6, IE5
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+
+			/* Ouverture du fichier XML voitures.xml en mode synchrone (false)*/
+			xmlhttp.open("GET", "voitures.xml", false);
+
+			/* Emission de la requête HTTP vers le serveur  */
+			xmlhttp.send();
+
+			/* Création du document XML en mémoire */
+			xmlDoc = xmlhttp.responseXML;
+
+			/* Boucle d'affichage de la marque des voitures */
+			marquesVoitures = xmlDoc.getElementsByTagName("marque");
+			alert("Nombre de voitures : " + marquesVoitures.length);
+			for ( i = 0; i < marquesVoitures.length; i++) {
+				/* Affichage de la marque de la voiture en cours
+				 et de son noeud parent */
+				document.write("Marque de la voiture n° " + (i + 1) + " : " + marquesVoitures[i].childNodes[0].nodeValue + " (a pour parent " + marquesVoitures[i].parentNode.nodeName + ")<br />");
+			}
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

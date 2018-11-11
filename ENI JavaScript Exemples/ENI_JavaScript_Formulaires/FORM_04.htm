@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!-- NOM DU SCRIPT : FORM_04.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Gestion de formulaire  (contrôle de saisie alphabétique et numérique)
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type"
+		content="text/html; charset=utf-8" />
+		<!-- Titre du script HTML -->
+		<title>FORM_04</title>
+
+		<!-- Début script JavaScript -->
+		<script type='text/javascript'>
+		
+			/* Fonction de test de saisie alphabétique et numérique */
+			function estAlphaNumerique(champ, messageAlerte) {
+				/* Définition des valeurs acceptées */
+				var valeursAcceptees = /^[0-9a-zA-Z]+$/;
+				/* Test alphabétique */
+				if (champ.value.match(valeursAcceptees)) {
+					/* Valeur de retour */
+					alert("Vous avez saisi " + document.getElementById('alphanumerique').value);
+					return true;
+				} else {
+					/* Affichage d'un message d'alerte */
+					alert(messageAlerte);
+					/* Focus sur le champ en erreur */
+					champ.focus();
+					/* Valeur de retour */
+					return false;
+				}
+			}
+
+		</script>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - FORM_04</h1>
+
+		<!-- Début script JavaScript -->
+		<script type='text/javascript'>
+		
+			/* Affichage du nom du script */
+			alert("FORM_04");
+
+		</script>
+
+		<!-- Formulaire de saisie HTML -->
+		<form>
+			Champ alphanumérique (minuscules/MAJUSCULES et/ou chiffres) :
+			<input
+			type='text'
+			id='alphanumerique'
+			/>
+			<input
+			type='button'
+			onclick="estAlphaNumerique(document.getElementById('alphanumerique'),
+			'Saisie alphanumérique SVP')"
+			value='Validation saisie'
+			/>
+		</form>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

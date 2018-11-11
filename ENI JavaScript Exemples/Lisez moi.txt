@@ -1,0 +1,8 @@
+Pour exploiter les exemples du livre, vous pouvez par exemple les installer dans un environnement
+de type IDE comme Aptana Studio.
+
+Vous pourrez ainsi aisément consulter ces exemples, les tester directement dans l'éditeur,
+voire les modifier.
+
+Aptana Studio est téléchargeable à l'adresse : http://aptana.com/
+ 

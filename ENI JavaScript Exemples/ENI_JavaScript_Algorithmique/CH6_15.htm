@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH6_15.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Construire un triangle de PASCAL dans une matrice 10*10
+à partir de la formule Cnp=Cn-1p-1+Cn-1p
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH6_15</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH6_15</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("Exercice CH6_15");
+
+			/* Déclaration de variables locales */
+			var pascal = new Array(11, 11);
+			var cpt_lignes, cpt_colonnes;
+
+			/* Initialisation à zéro du tableau pascal */
+			for (cpt_lignes = 1; cpt_lignes <= 10; cpt_lignes++) {
+				for (cpt_colonnes = 1; cpt_colonnes <= 10; cpt_colonnes++) {
+					pascal[cpt_lignes, cpt_colonnes] = 0;
+				}
+			}
+
+			/* Calcul du tableau pascal */
+			pascal[1, 1] = 1;
+			document.write("pascal(1, 1)=" + pascal[1, 1] + "<br />");
+			for (cpt_lignes = 2; cpt_lignes <= 10; cpt_lignes++) {
+				pascal[cpt_lignes, 1] = 1;
+				document.write("pascal(" + cpt_lignes + ", 1)=" + pascal[cpt_lignes, 1] + "<br />");
+				for (cpt_colonnes = 2; cpt_colonnes <= cpt_lignes; cpt_colonnes++) {
+					document.write("p(" + (cpt_lignes - 1) + ", " + (cpt_colonnes - 1) + ")=" + pascal[(cpt_lignes - 1), (cpt_colonnes - 1)] + "<br />");
+					document.write("p(" + (cpt_lignes - 1) + ", " + cpt_colonnes + ")=" + pascal[(cpt_lignes - 1), cpt_colonnes] + "<br />");
+					pascal[cpt_lignes, cpt_colonnes] = parseInt(pascal[(cpt_lignes - 1), (cpt_colonnes - 1)]) + parseInt(pascal[(cpt_lignes - 1), cpt_colonnes]);
+					document.write("pascal(" + cpt_lignes + ", " + cpt_colonnes + ")=" + pascal[cpt_lignes, cpt_colonnes] + "<br />");
+				}
+			}
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

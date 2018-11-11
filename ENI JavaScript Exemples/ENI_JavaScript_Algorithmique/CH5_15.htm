@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH5_15.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Calculer les arrangements (au sens statistique) de deux dés donnant une somme lue au clavier (somme de 2 à 12)
+Exemple : SOMME_DES : 8
+(2, 6)
+(3, 5)
+(4, 4)
+(4, 4)
+(5, 3)
+(6, 2)
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH5_15</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH5_15</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("Exercice CH5_15");
+
+			/* Déclaration de variables locales */
+			var somlue, debut, fin, i;
+
+			/* Saisie de la somme des 2 dés */
+			somlue = prompt("Somme des deux dés :");
+
+			/* Détermination des bornes des couplets */
+			if (somlue <= 7) {
+				debut = 1;
+				fin = somlue - 1;
+			} else {
+				debut = somlue - 6;
+				fin = 6;
+			}
+
+			/* Détermination des couplets */
+			while (debut <= fin) {
+				i = somlue - debut;
+				document.write("(" + debut + "," + i + ")<br />");
+				debut = debut + 1;
+			}
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

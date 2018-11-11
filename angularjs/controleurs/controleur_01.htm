@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : controleur_01.htm
+Auteur : Christian VIGOUROUX
+Date de création : 19/04/2016
+Date de dernière modification : 19/4/2016
+Objet : Utilisation de contrôleurs multiples
+-->
+
+<!-- Balise HTML -->
+<html lang="fr-FR">
+
+    <!-- Section HEAD -->
+    <head>
+        <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">     
+        <!-- Appel du Framework Angular -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+        </script>
+    </head>
+
+    <!-- Section BODY -->
+    <body>
+
+    <!-- Section BODY intégrant des directives Angular -->
+    <body ng-app="monApplication">
+
+        <!-- Utilisation de la police de caractères Arial -->
+        <font face="Arial">
+
+            <!-- Marque favorite sans passer par un contrôleur -->
+            Marque favorite sans passer par un contrôleur : {{marqueFavorite}}
+
+            <!-- Avec passage par un contrôleur (monControleur1) -->
+            <div ng-controller="monControleur1">
+                Marque favorite sans passer par le contrôleur monControleur1 : {{marqueFavorite}}
+            </div>
+
+            <!-- Avec passage par un contrôleur (monControleur2) -->
+            <div ng-controller="monControleur2">
+                Marque favorite sans passer par le contrôleur monControleur2 : {{marqueFavorite}}
+            </div>
+
+        </font>
+
+        <!-- Module et contrôleurs Angular -->
+        <script>
+            
+            // Déclaration du module monApplication
+            var application = angular.module("monApplication", []);
+            
+            // Sans passage par un contrôleur
+            application.run(function($rootScope) {
+                $rootScope.marqueFavorite = 'Porsche';
+            });
+           
+            // Déclaration du contrôleur monControleur1
+            application.controller('monControleur1', function($scope) {
+                $scope.marqueFavorite = "Ferrari";
+            });
+
+            // Déclaration du contrôleur monControleur2
+            application.controller('monControleur2', function($scope) {
+                $scope.marqueFavorite = "BMW";
+            });
+
+        </script>
+
+    </body>
+
+</html>

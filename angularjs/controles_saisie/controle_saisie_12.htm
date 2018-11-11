@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : controle_saisie_12.htm
+Auteur : Christian VIGOUROUX
+Date de création : 19/04/2016
+Date de dernière modification : 19/4/2016
+Objet : Cases à cocher pour le choix d’un pays
+-->
+
+<!-- Balise HTML -->
+<html lang="fr-FR">
+
+  <!-- Section HEAD -->
+  <head>
+    <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <!-- Appel du Framework AngularJS -->
+    <script
+      src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+    </script>
+    <!-- Appel de checklist-model.js (Cf Vitalets) -->
+    <script src="checklist-model.js">
+    </script>
+    </head>
+
+  <!-- Section BODY -->
+  <body>
+
+    <!-- Script HTML intégrant des directives AngularJS -->
+    <div ng-app="monApplication" ng-controller="monControleur">
+
+      <!-- Utilisation de la police de caractères Arial -->
+      <font face="Arial">
+
+        <!-- Affichage des cases à cocher des pays -->
+        <label ng-repeat="pays in liste_pays">
+          <input
+            type="checkbox"
+            checklist-model="casesCochees.liste_pays"
+            checklist-value="pays"
+          />{{pays}}
+        </label>
+
+        <!-- Boutons de sélection totale ou désélection -->
+        <br><br>
+        <button ng-click="selectionTotale()">Sélection totale</button>
+        <br>
+        <button ng-click="deselectionTotale()">Désélection totale</button>
+
+        <!-- Affichage de confirmation des choix effectués
+             via les cases à cocher -->
+        <br /><br />
+        Confirmation des choix :
+        {{casesCochees.liste_pays}}
+        <br />
+        {{casesCochees.liste_pays[0]}}
+        <br />
+        {{casesCochees.liste_pays[1]}}
+        <br />
+        {{casesCochees.liste_pays[2]}}
+      </font>
+
+    </div>
+
+    <!-- Module et contrôleur AngularJS -->
+    <script>
+
+      // Définition du module monApplication
+      var application = angular.module("monApplication", ["checklist-model"]);
+
+      // Définition du contrôleur monControleur
+      application.controller("monControleur", function($scope) {
+
+        // Initialisation du tableau des pays
+        $scope.liste_pays = [
+          "Allemagne",
+          "Italie",
+          "Autres"
+        ];
+
+        // Liste des cases cochées par défaut
+        $scope.casesCochees = {
+          liste_pays: ["Allemagne", "Italie"]
+        };
+
+        // Sélection totale
+        $scope.selectionTotale = function() {
+          $scope.casesCochees.liste_pays = angular.copy($scope.liste_pays);
+        };
+
+        // Désélection totale
+        $scope.deselectionTotale = function() {
+          $scope.casesCochees.liste_pays = [];
+        };
+
+      });
+
+    </script>
+
+  </body>
+
+</html>

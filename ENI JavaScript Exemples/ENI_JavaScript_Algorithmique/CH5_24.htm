@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH5_24.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Etablir un tableau d'amortissement dégressif
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH5_24</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH5_24</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("Exercice CH5_24");
+
+			/* Déclaration de variables locales */
+			/*
+			jj        : Jour d'acquisition
+			mm        : Mois d'acquisition
+			aa        : Année d'acquisition
+			v         : Valeur d'acquisition
+			n         : Durée d'amortissement
+			lib       : Libellé du bien amorti
+			t         : Taux d'amortissement
+			prorata   : Prorata temporis
+			annuite   : Annuité d'amortissement
+			vnc_debut : Valeur résiduelle début d'exercice
+			vnc_fin   : Valeur résiduelle fin d'exercice
+			cumul     : Cumul des amortissements
+			i         : Compteur de boucle
+			cpt       : Compteur de boucle
+			*/
+			var jj, mm, aa, v, n, lib, t, prorata, annuite, vnc_debut, vnc_fin, cumul, i, cpt;
+
+			/* Initialisations F*/
+			lib = prompt("Libellé :");
+			jj = parseInt(prompt("Jour d’acquisition :"));
+			mm = parseInt(prompt("Mois d’acquisition :"));
+			aa = parseInt(prompt("Année d’acquisition :"));
+			v = parseFloat(prompt("Valeur d’acquisition :"));
+			n = parseInt(prompt("Durée d’amortissement :"));
+
+			/* Calcul du taux d'amortissement dégressif */
+			if (n < 5) {
+				t = 1 / n * 1.5;
+			} else {
+				if (n < 7) {
+					t = 1 / n * 2;
+				} else {
+					t = 1 / 2 * 2.5;
+				}
+			}
+
+			/* Calcul du Prorata Temporis */
+			prorata = (13 - mm) / 12;
+
+			/* Edition en-tête de tableau */
+			document.write("TABLEAU D'AMORTISSEMENT DEGRESSIF<br/>");
+			document.write("DESIGNATION : " + lib + "<br />");
+			document.write("DUREE DE VIE : " + n + "<br />");
+			document.write("DATE D'ACQUISITION : " + jj + "/" + mm + "/" + aa + "<br />");
+			document.write("TAUX D'AMORTISSEMENT : " + t + "<br />");
+			document.write("ANNEE VNC DEBUT AMORT DE L'ANNEE CUMUL VNC FIN<br/>");
+
+			/* Calcul de la 1ère annuité */
+			annuite = (v * t) * prorata;
+			vnc_debut = v;
+			cumul = annuite;
+			vnc_fin = v - annuite;
+
+			/* Edition ligne amortissement année 1 */
+			document.write(aa + " " + vnc_debut + " " + annuite + " " + cumul + " " + vnc_fin + "<br />");
+
+			/*
+			 Traitement des annuités dégressives
+			 */
+			for ( cpt = 2; cpt <= n; cpt++) {
+
+				/*
+				 Calcul et affichage des lignes du tableau d'amortissement
+				 */
+
+				/* Calcul de la VNC Début */
+				vnc_debut = vnc_fin;
+
+				/* Calcul de l'annuité */
+				if (t > 1 / (n - cpt + 1)) {
+					annuite = vnc_debut * t;
+				} else {
+					annuite = vnc_debut / (n - cpt + 1);
+				}
+
+				/* Calcul du cumul des annuités */
+				cumul = cumul + annuite;
+
+				/* Calcul de la VNC Fin */
+				vnc_fin = vnc_debut - annuite;
+
+				/* Affichage */
+				document.write(aa + cpt - 1 + " " + vnc_debut + " " + annuite + " " + cumul + " " + vnc_fin + "<br />");
+
+			}
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

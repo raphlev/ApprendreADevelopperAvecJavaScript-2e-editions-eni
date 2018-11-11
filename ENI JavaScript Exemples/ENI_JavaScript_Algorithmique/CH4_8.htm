@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH4_8.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Un robot conduit une voiture. Il peut exécuter 3 actions «s’arrêter», «ralentir» et «passer»
+en fonction de la couleur des feux (rouge, orange, vert) qui sera une variable saisie. Ecrire un algorithme programmant le robot.
+Il faudra utiliser la structure de contrôle switch.
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH4_8</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH4_8</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("Exercice CH4_8");
+
+			/* Déclaration de variables locales */
+			var couleur_feu;
+
+			/* Saisie de la couleur du feu */
+			couleur_feu = prompt("Couleur du feu (rouge, orange, vert) :");
+
+			/* Test de la couleur du feu et action déduite */
+			switch (couleur_feu) {
+				case "rouge":
+					document.write("Je stoppe");
+					break;
+				case "orange":
+					document.write("J'évite de passer");
+					break;
+				case "vert":
+					document.write("Je passe prudemment");
+					break;
+				default:
+					document.write("Je stoppe par prudence");
+			}
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

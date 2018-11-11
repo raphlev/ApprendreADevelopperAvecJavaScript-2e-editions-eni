@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : boucles_filtres_01.htm
+Auteur : Christian VIGOUROUX
+Date de création : 19/04/2016
+Date de dernière modification : 19/4/2016
+Objet : Boucle de parcours sur un tableau
+-->
+
+<!-- Balise HTML -->
+<html>
+
+  <!-- Section HEAD -->
+  <head>
+    <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <!-- Appel du Framework AngularJS -->
+    <script
+      src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+    </script>
+  </head>
+
+  <!-- Section BODY -->
+  <body>
+
+    <!-- Script HTML intégrant des directives AngularJS -->
+    <div ng-app="monApplication" ng-controller="monControleur">
+
+      <!-- Utilisation de la police de caractères Arial -->
+      <font face="Arial">
+
+        <!-- Boucle de parcours du tableau voitures -->
+        <ul>
+          <li ng-repeat="voiture in voitures">
+            {{voiture.marque + " " + voiture.modele}}
+          </li>
+        </ul>
+
+      </font>
+
+    </div>
+
+    <!-- Module et contrôleur AngularJS -->
+    <script>
+
+      // Déclaration du module nommé application
+      var application = angular.module("monApplication", []);
+
+      // Déclaration du contrôleur nommé monControleur
+      application.controller("monControleur", function($scope) {
+        // Initialisation d'un tableau de voitures
+        $scope.voitures = [
+          {marque: "Porsche", modele: "911"},
+          {marque: "Ferrari", modele: "Testarossa"},
+          {marque: "BMW", modele: "M5"}
+        ];
+      });
+
+    </script>
+
+  </body>
+
+</html>

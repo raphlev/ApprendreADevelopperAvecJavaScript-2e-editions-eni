@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH5_14.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Calculer le nombre de monotonies strictement croissantes (suite de chiffres en ordre strictement croissant)
+de plus d'un élément d'une suite d'entiers lus au clavier (suite terminée par un zéro)
+Attention à bien compter la dernière monotone éventuelle à la sortie (à la saisie du zéro).
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH5_14</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH5_14</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("Exercice CH5_14");
+
+			/* Déclaration de variables locales */
+			var nblu, nbluancien, cpt, x;
+
+			/* Initialisations */
+			cpt = 0;
+			x = 0;
+
+			/* Saisie d'un premier nombre */
+			nbluancien = prompt("Nombre :");
+
+			/* Boucle de traitement */
+			do {
+				/* Saisie d'un nouveau nombre */
+				nblu = prompt("Nombre (0 si fin) :");
+				/* Incrémentation de la longueur de la monotonie */
+				x = x + 1;
+				/* Comptage de la monotonie */
+				if (nblu <= nbluancien && x > 2) {
+					cpt = cpt + 1;
+				}
+				/* Rupture de monotonie (remise à 1 de la longueur) */
+				if (nblu <= nbluancien) {
+					x = 1;
+				}
+				/* Mémorisation du nblu en cours dans la variable nbluancien */
+				nbluancien = nblu;
+
+			} while (nblu != 0)
+
+			/* Affichage du résultat */
+			document.write("Nombre de monotonies de longueur > à 1 : " + cpt);
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

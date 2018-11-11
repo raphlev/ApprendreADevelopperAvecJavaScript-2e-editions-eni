@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : mysql_01.htm
+Auteur : Christian VIGOUROUX
+Date de création : 19/04/2016
+Date de dernière modification : 19/4/2016
+Objet : Listage des enregistrements de la table MySQL voitures
+-->
+
+<!-- Balise HTML -->
+<html>
+
+  <!-- Section HEAD -->
+  <head>
+    <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <!-- Appel du Framework AngularJS -->
+    <script
+      src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+    </script>
+  </head>
+
+  <!-- Section BODY -->
+  <body>
+
+    <!-- Script HTML intégrant des directives AngularJS -->
+    <div ng-app="monApplication" ng-controller="monControleur">
+
+      <!-- Utilisation de la police de caractères Arial -->
+      <font face="Arial">
+
+        <!-- Affichage de contrôle de l'objet JSON voitures -->
+        <br><br><br>
+        {{voitures}}
+        <br><br><br>
+
+        <!-- Boucle de parcours du tableau voitures
+             et placement dans un tableau HTML -->
+        <table border="1" width="40%" align="left">
+          <!-- Définition des intitulés de colonnes -->
+          <tr>
+            <th>Marque</th>
+            <th>Modèle</th>
+            <th>Pays</th>
+          </tr>
+          <!-- Placement des enregistrements dans le tableau HTML -->
+          <tr ng-repeat="voiture in voitures">
+            <td>{{voiture.marque}}</td>
+            <td>{{voiture.modele}}</td>
+            <td>{{voiture.pays}}</td>
+          </tr>
+        </table>
+
+      </font>
+
+    </div>
+
+    <!-- Module et contrôleur AngularJS -->
+    <script>
+
+      // Déclaration du module nommé monApplication
+      var application = angular.module("monApplication", []);
+
+      // Déclaration du contrôleur nommé monControleur
+      application.controller("monControleur", function($scope, $http) {
+        // Initialisation d'un tableau de voitures
+        // ($scope.voitures) par un flux JSON
+        $http.get("http://127.0.0.1/angularjs/mysql/mysql_01.php")
+        .then(function (response) {
+          $scope.voitures = response.data.voitures
+        });
+      });
+
+     </script>
+
+  </body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : mvc_04.htm
+Auteur : Christian VIGOUROUX
+Date de création : 19/04/2016
+Date de dernière modification : 19/4/2016
+Objet : Contrôleur dans un script externe
+-->
+
+<!-- Balise HTML -->
+<html>
+
+  <!-- Section HEAD -->
+  <head>
+    <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <!-- Appel du Framework AngularJS -->
+    <script
+      src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <!-- Appel du script externe Javascript (contrôleur de l'application) -->
+    <script src="mvc_controleur_04.js"></script>
+  </head>
+
+  <!-- Section BODY -->
+  <body>
+
+    <!-- Script HTML intégrant des directives AngularJS -->
+    <div ng-app="monApplication" ng-controller="monControleur">
+      <!-- Affichage de la voiture préférée -->
+      <font face="Arial">
+        Voiture préférée : {{afficherVoiturePreferee()}}
+      </font>
+    </div>
+
+  </body>
+
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH5_20.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Etablir un tableau d'amortissement linéaire
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH5_20</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH5_20</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("Exercice CH5_20");
+
+			/* Déclaration de variables locales */
+			/*
+			jj        : Jour d'acquisition
+			mm        : Mois d'acquisition
+			aa        : Année d'acquisition
+			v         : Valeur d'acquisition
+			n         : Durée d'amortissement
+			lib       : Libellé du bien amorti
+			t         : Taux d'amortissement
+			a1        : Annuité no 1
+			vnc_debut : Valeur résiduelle début d'exercice
+			cumul     : Cumul des amortissements
+			vnc_fin   : Valeur résiduelle fin d'exercice
+			af        : Annuité finale
+			an        : Annuité normale
+			cpt       : Compteur de boucle
+			*/
+			var jj, mm, aa, v, n, lib, t, a1, vnc_debut, cumul, vnc_fin, af, an, cpt, debut, fin;
+
+			/* Initialisations */
+			lib = prompt("Libellé :");
+			jj = parseInt(prompt("Jour d’acquisition :"));
+			mm = parseInt(prompt("Mois d’acquisition :"));
+			aa = parseInt(prompt("Année d’acquisition :"));
+			v = parseFloat(prompt("Valeur d’acquisition :"));
+			n = parseInt(prompt("Durée d’amortissement :"));
+
+			/* Calcul du taux d'amortissement */
+			t = 1 / n;
+
+			/* Edition en-tête de tableau */
+			document.write("TABLEAU D'AMORTISSEMENT LINEAIRE<br/>");
+			document.write("DESIGNATION : " + lib + "<br />");
+			document.write("DUREE DE VIE : " + n + "<br />");
+			document.write("DATE D'ACQUISITION : " + jj + "/" + mm + "/" + aa + "<br />");
+			document.write("TAUX D'AMORTISSEMENT : " + t + "<br />");
+			document.write("ANNEE VNC DEBUT AMORT DE L'ANNEE CUMUL VNC FIN<br/>");
+
+			/* Calcul de la valeur résiduelle début année 1 */
+			vnc_debut = v;
+
+			/* Calcul de la 1ère annuité */
+			a1 = (v * t) * (31 - jj + (12 - mm) * 30) / 360;
+
+			/* Calcul du cumul des annuités*/
+			cumul = a1;
+
+			/* Calcul de la valeur résiduelle fin année 1 */
+			vnc_fin = v - a1;
+
+			/* Edition ligne amortissement année 1 */
+			document.write(aa + " " + vnc_debut + " " + a1 + " " + cumul + " " + vnc_fin + "<br />");
+
+			/* Calcul de l'annuité normale */
+			an = v * t;
+
+			/* Calcul de l'annuité finale */
+			if (a1 < an) {
+				af = an - a1;
+			}
+
+			/* Affichages de contrôle */
+			/* document.write("Annuite 1 : " + a1 + "<br />"); */
+			/* document.write("Annuite normale : " + an + "<br />"); */
+			/* document.write("Annuite finale : " + af + "<br />");	*/
+
+			/* Traitement des N - 1 annuités normales */
+			debut = parseInt(aa) + 1;
+			fin = parseInt(aa) + parseInt(n);
+			for ( cpt = debut; cpt < fin; cpt++) {
+				/* Calcul de la valeur résiduelle début d'exercice */
+				vnc_debut = vnc_fin;
+				/* Calcul du cumul des annuités */
+				cumul = cumul + an;
+				/* Calcul de la valeur résiduelle fin d'exercice */
+				vnc_fin = v - cumul;
+				/* Edition ligne amortissement normale */
+				document.write(cpt + " " + vnc_debut + " " + an + " " + cumul + " " + vnc_fin + "<br />");
+			}
+
+			/* Traitement de la dernière année éventuelle */
+			if (af != 0) {
+				vnc_debut = vnc_fin;
+				vnc_fin = vnc_debut - af;
+				fin = aa + n;
+				document.write(fin + " " + vnc_debut + " " + af + " " + cumul + " " + vnc_fin);
+			}
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

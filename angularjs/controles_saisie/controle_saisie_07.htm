@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : controle_saisie_07.htm
+Auteur : Christian VIGOUROUX
+Date de création : 19/04/2016
+Date de dernière modification : 19/4/2016
+Objet : Liste déroulante de choix du pays pour le listage des voitures
+-->
+
+<!-- Balise HTML -->
+<html lang="fr-FR">
+
+  <!-- Section HEAD -->
+  <head>
+    <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <!-- Appel du Framework AngularJS -->
+    <script
+      src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+    </script>
+    </head>
+
+  <!-- Section BODY -->
+  <body>
+
+    <!-- Script HTML intégrant des directives AngularJS -->
+    <div ng-app="monApplication" ng-controller="monControleur">
+
+      <!-- Utilisation de la police de caractères Arial -->
+      <font face="Arial">
+
+        <!-- Liste déroulante de choix du pays -->
+        Pays :
+        <select ng-model="paysMarquesPreferees">
+          <option
+            ng-repeat="pays in liste_pays"
+            value="{{pays}}">
+            {{pays}}
+          </option>
+        </select>
+        <button
+          type="submit"
+          ng-click="listerVoitures()">
+          Requête PHP/MySQL
+        </button><br>
+
+        <!-- Boucle de parcours du tableau voitures
+             et placement dans un tableau HTML -->
+        <table border="1" width="40%" align="left">
+          <!-- Définition des intitulés de colonnes -->
+          <tr>
+            <th>Marque</th>
+            <th>Modèle</th>
+            <th>Pays</th>
+          </tr>
+          <!-- Placement des enregistrements dans le tableau HTML -->
+          <br><br><br>
+          <tr ng-repeat="voiture in voitures">
+            <td>{{voiture.marque}}</td>
+            <td>{{voiture.modele}}</td>
+            <td>{{voiture.pays}}</td>
+          </tr>
+        </table>
+
+      </font>
+
+    </div>
+
+    <!-- Module et contrôleur AngularJS -->
+    <script>
+
+      // Déclaration du module nommé monApplication
+      var application = angular.module("monApplication", []);
+
+      // Déclaration du contrôleur nommé monControleur
+      application.controller("monControleur", function($scope, $http) {
+
+        // Définition du tableau des pays (liste_pays)
+        $scope.liste_pays = ["Allemagne", "France", "Italie"];
+
+        // URL des scripts PHP à appeler
+        $scope.urlListageVoitures = "mysql_02.php";
+
+        // Fonction de listage des voitures dans la BDD MySQL angular
+        // via un script serveur PHP (mysql_02.php)
+        $scope.listerVoitures = function() {
+
+          // Création d'une requête http à poster (contenu JSON)
+          // NB : Test d'existence de la variable paysMarquesPreferees
+          //      pour éviter une erreur de décodage sur le serveur PHP
+          // alert("Pays : " + $scope.paysMarquesPreferees);
+          if ($scope.paysMarquesPreferees) {
+            $http.post($scope.urlListageVoitures,
+            {"data" : $scope.paysMarquesPreferees})
+            // Cas de succès
+            .success(function(data, status) {
+              // Récupération du status
+              $scope.status = status;
+              // Récupération du flux JSON
+              $scope.voitures = data;
+            })
+            // Cas d'échec
+            .error(function(data, status) {
+              // Récupération du status
+              $scope.status = status;
+              // Message d'erreur
+              $scope.data = "La requête a échouée";
+            });
+          }
+
+        };
+
+      });
+
+    </script>
+
+  </body>
+
+</html>

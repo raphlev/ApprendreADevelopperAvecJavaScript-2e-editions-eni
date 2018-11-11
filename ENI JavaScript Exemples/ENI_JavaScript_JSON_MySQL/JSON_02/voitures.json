@@ -1,0 +1,5 @@
+{ 
+  "voiture1":{ "code":"V001", "libelle":"Porsche 930 Turbo", "vitesse_maxi":290 },
+  "voiture2":{ "code":"V002", "libelle":"Porsche 964 Turbo", "vitesse_maxi":300 },
+  "voiture3":{ "code":"V003", "libelle":"Ferrari 430", "vitesse_maxi":320 } 
+}

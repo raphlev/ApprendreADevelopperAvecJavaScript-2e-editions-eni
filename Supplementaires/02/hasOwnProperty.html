@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			
+Object.prototype.proprietes = function( pFlag ) { 
+	var res = []; 
+	for ( p in this ) {
+		if ( !this.hasOwnProperty( p ) )
+			continue;
+		if ( !pFlag || 
+				( typeof this[ p ] == pFlag ) ) { 
+			res.push( p ); 
+		} 
+	} 
+	return res; 
+}
+			  
+			var unePersonne = { 
+				nom : "brillant", 
+				prenom : "alexandre", 
+				bonjour : function() { 
+				  alert( "bonjour " + this.prenom ); 
+				} 
+			}
+			
+			console.log( unePersonne.proprietes( 'function' ).join( ", " ) );
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

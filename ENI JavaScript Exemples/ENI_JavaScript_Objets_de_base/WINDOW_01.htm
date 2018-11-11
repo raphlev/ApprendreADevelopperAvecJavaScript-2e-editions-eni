@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : WINDOW_01.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Gestion de l'objet window
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>WINDOW_01</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - WINDOW_01</h1>
+
+		<!-- Début script JavaScript -->
+		<script type="text/javascript">
+		
+			/* Affichage du nom du script */
+			alert("WINDOW_01");
+
+			/*
+			 Gestion de l'objet window
+			 */
+
+			/* Ouverture de la fenêtre */
+			/* Paramètres (dans l'ordre de mise en place) :
+			 - URL (Optionnel) : Indique l'adresse URL de la page à ouvrir. Si aucune URL n'est spécifiée, une nouvelle fenêtre avec about: blank est ouverte
+			 - Nom de la fenêtre (Optionnel) : Spécifie l'attribut cible ou le nom de la fenêtre
+			 Les valeurs suivantes sont supportées :
+			 _blank : URL est chargée dans une nouvelle fenêtre (valeur par défaut)
+			 _parent : URL est chargée dans le cadre parent
+			 _self : URL remplace la page courante
+			 _top : URL remplace les jeux de cadres qui peuvent être chargés
+			 Nom : Le nom de la fenêtre
+			 - Spécifications détaillées de la fenêtre :
+			 * height=pixels : Hauteur de la fenêtre (100 pixels minimum)
+			 * left=pixels : Position de la fenêtre par rapport à la gauche de l'écran
+			 * location=yes|no|1|0 : Présence ou non d'une barre d'adresse
+			 * menubar=yes|no|1|0 : Présence ou non d'une barre de menus
+			 * resizable=yes|no|1|0 : Possibilité ou non de redimensionner la fenêtre
+			 * scrollbars=yes|no|1|0 : Présence ou non de barres de défilement
+			 * status=yes|no|1|0 : Présence ou non d'une barre de status
+			 * titlebar=yes|no|1|0 : Présence ou non d'une barre de titre
+			 * toolbar=yes|no|1|0 : Présence ou non d'une barre d'outils
+			 * width=pixels : Largeur de la fenêtre en pixels
+			*/
+			maFenetre = window.open("", "FENETRE_01", "width=200, height=100, location=yes, titlebar=yes");
+
+			/* Ecriture d'un message dans la fenêtre */
+			maFenetre.document.write("Fenêtre créée en <b>Javascript</b>");
+
+			/* Focus sur la fenêtre */
+			maFenetre.focus();
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

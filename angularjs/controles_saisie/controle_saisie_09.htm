@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : controle_saisie_09.htm
+Auteur : Christian VIGOUROUX
+Date de création : 19/04/2016
+Date de dernière modification : 19/4/2016
+Objet : Une gestion de feux tricolores avec allumage/extinction des couleurs
+        (utilisation de ng-mouseleave sur les images)
+-->
+
+<!-- Balise HTML -->
+<html lang="fr-FR">
+
+  <!-- Section HEAD -->
+  <head>
+    <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <!-- Appel du Framework AngularJS -->
+    <script
+      src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+    </script>
+  </head>
+
+  <!-- Section BODY -->
+  <body>
+
+    <!-- Script HTML intégrant des directives AngularJS -->
+    <div ng-app="monApplication" ng-controller="monControleur">
+
+      <!-- Utilisation de la police de caractères Arial -->
+      <font face="Arial">
+
+        <!-- Affichage de l'image feu_vert.png -->
+        <img
+          src="images/feu_vert.png"
+          ng-show="initialiserVert"
+          ng-mouseleave="passerOrange()"
+        /img>
+        <!-- Affichage de l'image feu_orange.png -->
+        <img
+          src="images/feu_orange.png"
+          ng-show="initialiserOrange"
+          ng-mouseleave="passerRouge()"
+        /img>
+        <!-- Affichage de l'image feu_rouge.png -->
+        <img
+          src="images/feu_rouge.png"
+          ng-show="initialiserRouge"
+          ng-mouseleave="passerVert()"
+        /img>
+
+      </font>
+
+    </div>
+
+    <!-- Module et contrôleur AngularJS -->
+    <script>
+
+      // Définition du module monApplication
+      var application = angular.module('monApplication', []);
+
+      // Définition du contrôleur monControleur
+      application.controller('monControleur', function($scope) {
+
+        // Initialisation des couleurs de feu (vert par défaut)
+        $scope.initialiserVert = true;
+        $scope.initialiserOrange = false;
+        $scope.initialiserRouge = false;
+
+        // Fonction passerVert
+        $scope.passerVert = function() {
+
+          // Passage du feu au vert
+          alert("Passage au vert");
+          $scope.initialiserVert = true;
+          $scope.initialiserOrange = false;
+          $scope.initialiserRouge = false;
+
+        };
+
+        // Fonction passerOrange
+        $scope.passerOrange = function() {
+
+          // Passage du feu à l'orange
+          alert("Passage à l'orange");
+          $scope.initialiserVert = false;
+          $scope.initialiserOrange = true;
+          $scope.initialiserRouge = false;
+
+        };
+
+        // Fonction passerRouge
+        $scope.passerRouge = function() {
+
+          // Passage du feu au rouge
+          alert("Passage au rouge");
+          $scope.initialiserVert = false;
+          $scope.initialiserOrange = false;
+          $scope.initialiserRouge = true;
+
+        };
+
+      });
+
+    </script>
+
+  </body>
+
+</html>

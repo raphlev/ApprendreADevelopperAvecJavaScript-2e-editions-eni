@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : controle_saisie_01.htm
+Auteur : Christian VIGOUROUX
+Date de création : 19/04/2016
+Date de dernière modification : 19/4/2016
+Objet : Contrôle de saisie sur une zone de texte
+-->
+
+<!-- Balise HTML -->
+<html lang="fr-FR">
+
+  <!-- Section HEAD -->
+  <head>
+    <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <!-- Appel du Framework AngularJS -->
+    <script
+      src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+    </script>
+  </head>
+
+  <!-- Section BODY -->
+  <body ng-app="">
+
+    <!-- Utilisation de la police de caractères Arial -->
+    <font face="Arial">
+
+      <!-- Affichage du formulaire -->
+      <form name="monFormulaire">
+        Marque préférée :
+        <input name="marquePreferee" ng-model="marquePreferee" required>
+      </form>
+
+      <!-- Affichage de contrôle -->
+     <br />
+     Compte-rendu de saisie : {{monFormulaire.marquePreferee.$valid}}
+
+    </font>
+
+  </body>
+
+</html>

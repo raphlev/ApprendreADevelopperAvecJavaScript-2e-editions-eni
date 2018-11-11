@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : mvc_01.htm
+Auteur : Christian VIGOUROUX
+Date de création : 19/04/2016
+Date de dernière modification : 19/4/2016
+Objet : Premier exemple d'utilisation d'un module (nommé monApplication)
+        intégrant un contrôleur (nommé monControleur)
+-->
+
+<!-- Balise HTML -->
+<html>
+
+  <!-- Section HEAD -->
+  <head>
+    <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <!-- Appel du Framework AngularJS -->
+    <script
+      src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+    </script>
+  </head>
+
+  <!-- Section BODY -->
+  <body>
+
+    <!-- Script HTML intégrant des directives AngularJS -->
+    <div ng-app="monApplication" ng-controller="monControleur">
+      <!-- Affichage du résultat (marque + " " + modele) -->
+      <font face="Arial">
+          {{marque + " " + modele}}
+      </font>
+    </div>
+
+    <!-- Module et contrôleur AngularJS -->
+    <script>
+
+      // Déclaration du module nommé monApplication
+      var application = angular.module("monApplication", []);
+
+      // Déclaration du contrôleur nommé monControleur
+      application.controller("monControleur", function($scope) {
+        // Initialisation des variables marque et modele
+        $scope.marque = "Porsche";
+        $scope.modele = "911";
+      });
+      
+    </script>
+
+  </body>
+
+</html>

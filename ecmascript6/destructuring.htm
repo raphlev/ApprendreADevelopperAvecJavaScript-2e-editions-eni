@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : destructuring.htm
+Auteur : Christian VIGOUROUX
+Date de création : 19/04/2016
+Date de dernière modification : 19/4/2016
+Objet : Destructring de tableaux et d'objets JavaScript
+-->
+
+<!-- Balise HTML -->
+<html>
+
+ 
+  <!-- Section HEAD -->
+  <head>
+    <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  </head>
+
+  <!-- Section BODY -->
+  <body>
+
+    <!-- Utilisation de la police de caractères Arial -->
+    <font face="Arial">
+
+      <!-- Affichage du titre du script -->
+      <h3>EcmaScript 6 : Desctructuring de tableaux et d'objets JavaScript</h3>
+
+      <!-- Script JavaScript -->
+      <script>
+
+        // Définition d'un tableau JavaScript de marques de voitures de sport
+        let marquesVoituresSport = ["Porsche", "Ferrari", "BMW"];
+
+        // Premier destructuring du tableau JavaScript marquesVoituresSport
+        // en variables mémoire
+        let [marque1, marque2, marque3] = marquesVoituresSport
+
+        // Affichages de contrôle
+        document.write("Marque n°1 : " + marque1 + "<br />");
+        document.write("Marque n°2 : " + marque2  + "<br />");
+        document.write("Marque n°3 : " + marque3 + "<br /><br />");
+
+        // Deuxième destructuring du tableau JavaScript marquesVoituresSport
+        // en variables mémoire
+        let [marque4, , marque6] = marquesVoituresSport
+
+        // Affichages de contrôle
+        document.write("Marque n°4 : " + marque4 + "<br />");
+        document.write("Marque n°6 : " + marque6 + "<br /><br />");
+
+        // Définition d'un objet JavaScript porsche911
+        let porsche911 = {
+          marque : "Porsche",
+          modele : "911"
+        };
+
+        // Destructuring de l'objet porsche911 en variables mémoire
+        let {marque, modele} = porsche911;
+
+        // Affichages de contrôle
+        document.write("Marque préférée : " + marque + "<br />");
+        document.write("Modèle préféré : " + modele);
+
+      </script>
+      
+    </font>
+
+  </body>
+
+</html>

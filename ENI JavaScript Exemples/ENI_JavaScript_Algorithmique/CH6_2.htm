@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH6_2.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Tri par insertion (les valeurs seront lues au clavier)
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH6_2</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH6_2</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+			
+			/* Affichage du nom du script */
+			alert("Exercice CH6_2");
+
+			/* Déclaration de variables locales */
+			/*
+			tableau   : Tableau des valeurs
+			nblu      : Nombre lu au clavier et à insérer
+			i         : Variable de travail
+			j         : Variable de travail
+			cpt       : Nombre d'éléments déjà rangés
+			*/
+			var tableau = new Array;
+			var nblu, i, j, cpt;
+
+			/* Saisie du premier nombre à placer dans le tableau */
+			tableau[1] = prompt("1ère valeur :");
+			tableau[1] = parseInt(tableau[1]);
+			cpt = 1;
+
+			/* Saisie du deuxième nombre à placer dans le tableau */
+			nblu = prompt("2ème valeur :");
+			nblu = parseInt(nblu);
+			i = 1;
+			/* Placement des nombres (intercalage ou placement à droite) */
+			while (nblu != 0) {
+				/* document.write("Grande boucle while" + "<br />"); */
+				while (nblu >= tableau[i] && i != cpt) {
+					i = i + 1;
+				}
+				/* Intercalage */
+				if (nblu < tableau[i]) {
+					/* document.write("Intercalage" + "<br />"); */
+					/* document.write("cpt : " + cpt + "<br />"); */
+					/* document.write("i : " + i + "<br />"); */
+					j = cpt + 1;
+					while (j >= i + 1) {
+						/* document.write("Intercalage en cours ..." + "<br />"); */
+						tableau[j] = tableau[j - 1];
+						j = j - 1;
+					}
+					tableau[i] = nblu;
+				} else {
+					/* Placement à droite */
+					if (i == cpt) {
+						/* document.write("Placement à droite" + "<br />"); */
+						tableau[cpt + 1] = nblu;
+					}
+				}
+				cpt = cpt + 1;
+				/* Saisie du nouveau nombre à placer dans le tableau */
+				nblu = prompt("Valeurs suivantes (0 pour finir) :");
+				nblu = parseInt(nblu);
+				i = 1;
+			}
+
+			/* Affichage du résultat */
+			for ( i = 1; i <= cpt; i++) {
+				document.write("tableau[" + i + "] : " + tableau[i] + "<br />");
+			}
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

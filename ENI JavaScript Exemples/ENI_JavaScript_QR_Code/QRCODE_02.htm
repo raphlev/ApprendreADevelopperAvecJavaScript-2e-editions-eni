@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : QRCODE_02.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Génération d'un QR Code
+REFERENCE : https://developers.google.com/chart/infographics/docs/qr_codes
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>QRCODE_02</title>
+
+		<!-- Début script JavaScript -->
+		<script type='text/javascript'>
+		
+			/* Fonction genererQRCode */
+			function genererQRCode() {
+
+				/* Annonce QR Code en préparation ... */
+				// alert("QR Code en préparation ...");
+
+				/* Préparation de l'URL de création du QR Code */
+				/* Exemple URL  : https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=Hello%20world&choe=UTF-8 */
+				var urlQRCode = "https://chart.googleapis.com/chart?";
+				urlQRCode = urlQRCode + "&chs=" + document.getElementById('tailleQRCode').value + "x" + document.getElementById('tailleQRCode').value;
+				urlQRCode = urlQRCode + "&cht=qr";
+				urlQRCode = urlQRCode + "&chl=" + document.getElementById('texteQRCode').value;
+				urlQRCode = urlQRCode + "&choe=UTF-8";
+
+				/* Affichage de contrôle de l'URL */
+				// alert("URl du génération du QR Code : " + urlQRCode);
+
+				/* Affichage du QR Code */
+				document.getElementById('imageQRCode').src = urlQRCode;
+			}
+
+		</script>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - QRCODE_02</h1>
+
+		<!-- Début script JavaScript -->
+		<script type='text/javascript'>
+		
+			/* Affichage du nom du script */
+			alert("QRCODE_02");
+
+		</script>
+
+		<!-- Formualaire de saisie des paramètres du code QR -->
+		<form>
+			<table>
+				<tr>
+					<td> Texte QR Code </td>
+					<td>
+					<input type="text" id="texteQRCode" size="50" value="http://christian.vigouroux.online.fr">
+					</td>
+				</tr>
+				<tr>
+					<td> Taille QR Code (Hauteur=Largeur) </td>
+					<td>
+					<input type="text" id="tailleQRCode" size="5" value="150">
+					</td>
+				</tr>
+			</table>
+			<br />
+			<input type="button" id="boutonGenerationQRCode" value="Créer le QR Code" onclick="genererQRCode()">
+		</form>
+
+		<!-- Image QR Code -->
+		<img id="imageQRCode">
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

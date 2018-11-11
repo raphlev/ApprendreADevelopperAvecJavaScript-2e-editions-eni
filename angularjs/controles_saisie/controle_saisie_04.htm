@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : controle_saisie_04.htm
+Auteur : Christian VIGOUROUX
+Date de création : 19/04/2016
+Date de dernière modification : 19/4/2016
+Objet : Liste déroulante basée sur un tableau de données
+-->
+
+<!-- Balise HTML -->
+<html lang="fr-FR">
+
+  <!-- Section HEAD -->
+  <head>
+    <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <!-- Appel du Framework AngularJS -->
+    <script
+      src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+    </script>
+  </head>
+
+  <!-- Section BODY -->
+  <body>
+
+    <!-- Script HTML intégrant des directives Angular -->
+    <div ng-app="monApplication" ng-controller="monControleur">
+
+      <!-- Utilisation de la police de caractères Arial -->
+      <font face="Arial">
+         
+        <!-- Liste déroulante -->
+        Marque :
+        <select>
+          <option ng-repeat="marque in marques">
+            {{marque}}
+          </option>
+        </select>
+
+      </font>
+
+    </div>
+
+    <!-- Module et contrôleur AngularJS -->
+    <script>
+
+      // Définition du module monApplication
+      var application = angular.module('monApplication', []);
+      
+      // Définition du contrôleur monControleur
+      application.controller('monControleur', function($scope) {
+        // Définition du tableau des éléments de la liste (marques)
+        $scope.marques = ["Porsche", "Ferrari", "BMW"];
+      });
+
+     </script>
+
+  </body>
+
+</html>

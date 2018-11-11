@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : POO_12.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Approche POO en Javascript
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>POO_12</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - POO_12</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("POO_12");
+
+			/* Définition d'une fonction constructeur de nom Vehicule */
+			/* NB : Le constructeur est ici vide */
+			var Vehicule = function() {
+			};
+
+			/* Ajout d'une méthode accelerer au prototype du constructeur Vehicule */
+			Vehicule.prototype.accelerer = function() {
+				document.write("accélère</br>");
+			};
+
+			/* Définition d'une fonction constructeur de nom Voiture */
+			/* NB : Le constructeur est ici vide */
+			var Voiture = function() {
+			};
+
+			/*
+			 Mécanisme de substitution
+			 */
+			/* Définition d'un constructeur de nom AliasVehicule de substitution pour le constructeur Vehicule */
+			var AliasVehicule = function() {
+				this.constructor = Vehicule;
+			};
+			/* Création du prototype du constructeur AliasVehicule à partir de celui du constructeur Vehicule */
+			// NB : AliasVehicule.prototype = Vehicule.prototype; fonctionne également
+			AliasVehicule.prototype = Object.create(Vehicule.prototype);
+			/* Le prototype du constructeur Voiture est une instance de l'alias AliasVehicule */
+			Voiture.prototype = new AliasVehicule();
+
+			/* Instanciation d'un objet simca1100 via le constructeur Voiture */
+			var simca1100 = new Voiture();
+
+			/* Ajout d'une méthode ralentir au prototype du constructeur Vehicule */
+			Vehicule.prototype.ralentir = function() {
+				document.write("ralentit</br>");
+			};
+
+			/* Appel de la méthode ralentir pour l'objet simca1100 */
+			document.write("La simca1100 ");
+			simca1100.ralentir();
+
+			/* L'objet simca1100 est-il basé sur le "type" Vehicule ? */
+			document.write("La simca1100 est de 'type' Vehicule : ");
+			document.write( simca1100 instanceof Vehicule);
+
+			/* L'objet simca1100 est-il basé sur le "type" Voiture ? */
+			document.write("</br>La simca1100 est de 'type' Voiture : ");
+			document.write( simca1100 instanceof Voiture);
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br>
+		<br>
+		<br>
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

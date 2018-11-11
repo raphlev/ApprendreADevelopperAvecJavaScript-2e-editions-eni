@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : POO_02.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Approche POO en Javascript
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>POO_02</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - POO_02</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("POO_02");
+
+			/* Définition d'une fonction constructeur de nom Voiture */
+			var Voiture = function() {
+				/* Attribut(s) de l'objet */
+				this.possedeMoteur = true;
+				/* Méthode(s) de l'objet */
+				this.avancer = function() {
+					document.write("avance");
+				}
+			}
+			/* Instanciation d'un objet simca1100 via le constructeur Voiture */
+			var simca1100 = new Voiture();
+
+			/* Affichage de l'attribut possedeMoteur de l'objet simca1100 */
+			if (simca1100.possedeMoteur) {
+				document.write("La voiture simca1100 possède bien un moteur</br>");
+			} else {
+				document.write("La voiture simca1100 ne possède pas de moteur !<br />");
+			}
+
+			/* Appel de la méthode avancer de l'objet simca1100 */
+			document.write("La voiture simca1100 ");
+			simca1100.avancer();
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br>
+		<br>
+		<br>
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

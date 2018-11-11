@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH6_9.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Rechercher dans un tableau de 10 noms ordonnés un nom saisi au clavier,
+le traitement s’arrêtant dès que le nom sera trouvé ou allant jusqu’au terme du tableau
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH6_9></title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH6_9</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+			
+			/* Affichage du nom du script */
+			alert("Exercice CH6_9");
+
+			/* Déclaration de variables locales */
+			var tb_noms = new Array;
+			var nom_cherche, compteur;
+
+			/* Initialisation du tableau tb_noms */
+			tb_noms[1] = "ALBERT";
+			tb_noms[2] = "BESNARD";
+			tb_noms[3] = "CALVI";
+			tb_noms[4] = "FERRAND";
+			tb_noms[5] = "GRENIER";
+			tb_noms[6] = "HAMARD";
+			tb_noms[7] = "JIMENEZ";
+			tb_noms[8] = "PASQUIER";
+			tb_noms[9] = "VASQUEZ";
+			tb_noms[10] = "ZAGOUNI";
+
+			/* Saisie du nom à rechercher */
+			nom_cherche = prompt("Nom à rechercher :");
+
+			/* Recherche du nom dans le tableau tb_noms */
+			compteur = 1;
+			while (compteur < 11 && tb_noms[compteur] <= nom_cherche && tb_noms[compteur] != nom_cherche) {
+				compteur = compteur + 1;
+			}
+
+			/* Affichage des résultats */
+			if (compteur == 11 || compteur == 11 || tb_noms[compteur] > nom_cherche) {
+				document.write(nom_cherche + " est absent du tableau");
+			} else {
+				document.write(nom_cherche + " est position " + compteur);
+			}
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

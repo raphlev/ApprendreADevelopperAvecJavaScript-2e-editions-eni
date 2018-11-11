@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : GEO_02.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Gestion carte Google Map - Carte de l'Ouest de la France (marqueur sur Rennes)
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta http-equiv & content -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Balise meta définissant la zone affichable -->
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=yes"/>
+		<!-- NB : initial-scale=1.0 : Ouverture de la page avec une échelle à 100 % -->
+		<!--      user-scalable=yes : Zoom possible de la part de l'utilisateur -->
+
+		<!-- Feuille de styles CSS -->
+		<style type="text/css">
+		
+			html, body, #maCarte {
+				margin: 0;
+				padding: 0;
+				height: 80%;
+			}
+
+		</style>
+
+		<!-- Titre du script HTML -->
+		<title>GEO_02</title>
+
+		<!-- Appel de l'API Google Map -->
+		<!-- NB : sensor=false signifie que l'application ne propose pas de repérage GPS -->
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+		<!-- Script Javascript de mise en place de la carte -->
+		<script type="text/javascript">
+			
+			/* Fonction d'initialisation de la carte */
+			function initialiserCarte() {
+
+				/* Définition de la position de centrage de la carte (centrée sur la ville de Rennes) */
+				/* NB : Cf http://code-postal.fr.mapawi.com/france/1/arrondissement-de-rennes/3/84/rennes/35000/8412/ */
+				var centreGoogleMap = new google.maps.LatLng(48.0833, -1.6833);
+
+				/* Définition des options de la carte */
+				var optionsGoogleMap = {
+					/* Facteur de zoom */
+					zoom : 8,
+					/* Point de centrage */
+					center : centreGoogleMap,
+					/* Mode d'affichage de la carte (vue carte routière )*/
+					/* NB : google.maps.mapTypeId.ROADMAP   -> Affichage en mode Plan */
+					/*      google.maps.mapTypeId.SATELLITE -> Affichage en mode Satellite */
+					/*      google.maps.mapTypeId.HYBRID    -> Affichage en mode Mixte (Plan/Satellite) */
+					/*      google.maps.mapTypeId.TERRAIN   -> Affichage en mode Relief */
+					mapTypeId : google.maps.MapTypeId.ROADMAP
+				}
+
+				/* Mise en place de la carte dans la division maCarte */
+				var maCarte = new google.maps.Map(document.getElementById("maCarte"), optionsGoogleMap);
+
+				/* Mise en place d'un marqueur pour repérer la ville de Rennes */
+				/* NB1 : position définit la position en Latitude/Longitude du marqueur */
+				/*       map permet l'affectation du marqueur à la carte */
+				/* NB2 : La mise en place du marqueur doit suivre l'affichage de la carte dans la division (et non pas l'inverse) */
+				var marqueurRennes = new google.maps.Marker({
+					position : new google.maps.LatLng(48.0833, -1.6833),
+					map : maCarte,
+					title : "Rennes, principale ville de Bretagne"
+				});
+
+				/* Texte explicatif pour la ville de Rennes */
+				var commentairesRennes = "<div>" + "<h1>Rennes</h1>" + "Rennes est une commune française, chef-lieu du département d’Ille-et-Vilaine<br>" + "et de la région Bretagne, ainsi que l'une des capitales historiques du duché de Bretagne.<br />" + "Cette ville se situe à l’est de la Bretagne à la confluence de l’Ille et de la Vilaine.<br />" + "Ses habitants sont appelés les Rennais et les Rennaises" + "<br>Site <a href='http://metropole.rennes.fr/'>Rennes Métropole</a>" + "</div>";
+
+				/* Constructeur de la fenêtre explicative associée à la ville de Rennes */
+				var fenetreRennes = new google.maps.InfoWindow({
+					content : commentairesRennes
+				});
+
+				/* Affichage de la fenêtre explicative sur clic sur le marqueur marqueurRennes */
+				google.maps.event.addListener(marqueurRennes, "click", function() {
+					fenetreRennes.open(maCarte, marqueurRennes);
+				});
+
+			}
+
+			/* Appel de la fonction initialiserCarte par le gestionnaire d'événements */
+			google.maps.event.addDomListener(window, "load", initialiserCarte)
+
+		</script>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - GEO_02</h1>
+
+		<!-- Début script JavaScript -->
+		<script type="text/javascript">
+		
+			/* Affichage du nom du script */
+			alert("GEO_02");
+
+		</script>
+
+		<!-- Définition de la division dans laquelle la carte sera affichée -->
+		<div id="maCarte" style="width:100%; height:100%">
+			<e d/div>
+
+				<!-- Message à destination des internautes ayant un navigateur sans Javascript -->
+				<noscript>
+					<p>
+						Remarque importante :
+					</p>
+					<p>
+						Pour utiliser une carte de type Google Map il faut que JavaScript soit activé dans votre navigateur.
+					</p>
+				</noscript>
+
+				<!-- Affichage du code source -->
+				<br />
+				<br />
+				<br />
+				<center>
+					<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+				</center>
+
+	</body>
+
+</html>

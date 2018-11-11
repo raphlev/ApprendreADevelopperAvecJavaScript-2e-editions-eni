@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : controle_saisie_06.htm
+Auteur : Christian VIGOUROUX
+Date de création : 19/04/2016
+Date de dernière modification : 19/4/2016
+Objet : Liste déroulante basée sur un tableau de données
+        (3 champs pour chaque enregistrement)
+-->
+
+<!-- Balise HTML -->
+<html lang="fr-FR">
+
+  <!-- Section HEAD -->
+  <head>
+    <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <!-- Appel du Framework AngularJS -->
+    <script
+      src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+    </script>
+  </head>
+
+  <!-- Section BODY -->
+  <body>
+
+    <!-- Script HTML intégrant des directives AngularJS -->
+    <div ng-app="monApplication" ng-controller="monControleur">
+
+      <!-- Utilisation de la police de caractères Arial -->
+      <font face="Arial">
+
+        <!-- Sélection d'une voiture dans une liste déroulante -->
+        <p>Choix d'une voiture : </p>
+        <select
+          ng-model="voitureSelectionnee"
+          ng-options="voiture as (voiture.marque + ' ' + voiture.modele)
+          for voiture in voitures">
+        </select>
+
+        <!-- Affichage de la voiture sélectionnée -->
+        <!-- NB : {{voitureSelectionnee}} contient
+                  les 3 champs (marque, modele et pays) -->
+        <br/ ><br/ ><br/ ><br/ ><br/ >
+        Voiture sélectionnée :</b><br/ >
+        Voiture : {{voitureSelectionnee}}<br/ >
+        Marque : {{voitureSelectionnee.marque}}<br/ >
+        Modèle : {{voitureSelectionnee.modele}}<br/ >
+        Pays : {{voitureSelectionnee.pays}}
+
+      </font>
+
+    </div>
+
+    <!-- Module et contrôleur AngularJS -->
+    <script>
+
+      // Définition du module monApplication
+      var application = angular.module('monApplication', []);
+
+      // Définition du contrôleur monControleur
+      application.controller('monControleur', function($scope) {
+        // Définition du tableau des éléments de la liste (voitures)
+        $scope.voitures = [
+          {marque : "Porsche", modele : "911", pays : "Allemagne"},
+          {marque : "Ferrari", modele : "Testarossa", pays : "Italie"},
+          {marque : "BMW", modele : "M5", pays : "Allemagne"}
+        ];
+      });
+
+    </script>
+
+  </body>
+
+</html>

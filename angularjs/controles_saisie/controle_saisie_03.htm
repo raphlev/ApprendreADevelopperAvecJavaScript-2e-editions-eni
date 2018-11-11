@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : controle_saisie_03.htm
+Auteur : Christian VIGOUROUX
+Date de création : 19/04/2016
+Date de dernière modification : 19/4/2016
+Objet : Contrôle de saisie sur une zone de texte requise
+        avec un affichage d'un message d'erreur si le champ est laissé vide
+        (perte de focus)
+-->
+
+<!-- Balise HTML -->
+<html lang="fr-FR">
+
+  <!-- Section HEAD -->
+  <head>
+  <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <!-- Appel du Framework AngularJS -->
+    <script
+      src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+    </script>
+  </head>
+
+  <!-- Section BODY -->
+  <body ng-app="">
+
+    <!-- Utilisation de la police de caractères Arial -->
+    <font face="Arial">
+    
+      <!-- Affichage du formulaire -->
+      <form name="monFormulaire">
+
+        <!-- Saisie de la marque
+        avec affichage de la mention "Saisie obligatoire de la marque"
+        si le champ est laissé vide (perte de focus) -->
+        Marque :
+        <input name="marqueVoiture" ng-model="marqueVoiture" required>
+        <span
+          ng-show="monFormulaire.marqueVoiture.$touched
+          && monFormulaire.marqueVoiture.$invalid">
+          <b>Saisie obligatoire de la marque</b>
+        </span>
+
+        <!-- Saisie du modèle -->
+       <br>Modèle :
+       <input name="modeleVoiture" ng-model="modeleVoiture" required>
+
+        <!-- Saisie du pays -->
+        <br>Pays :
+        <input name="marquePreferee" ng-model="marquePreferee" required>
+
+      </font>
+
+    </form>
+
+  </body>
+
+</html>

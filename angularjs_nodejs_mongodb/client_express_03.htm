@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : client_express_03.htm
+Auteur : Christian VIGOUROUX
+Date de création : 19/04/2016
+Date de dernière modification : 19/4/2016
+Objet : Passage de valeurs de champs à un serveur Express js (express_03.js)
+//      via la méthode get
+-->
+
+<!-- Balise HTML -->
+<html>
+
+  <!-- Section HEAD -->
+  <head>
+    <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  </head>
+
+  <!-- Section BODY -->
+  <body>
+
+    <!-- Utilisation de la police de caractères Arial -->
+    <font face="Arial">
+
+      <!-- Formulaire avec transfert de champs vers le serveur -->
+      <form method="get" action="http://127.0.0.1:8080/express_03">
+
+        <!-- Champ marque -->
+        Marque : <input type="text" name="marque"><br />
+        <!-- Champ modele -->
+        Modèle : <input type="text" name="modele"><br />
+        <!-- Champ pays -->
+        Pays : <input type="text" name="pays"><br /><br />
+        <!-- Bouton submit -->
+        <input type="submit" value="Envoi au serveur Express js">
+      </form>
+
+    </font>
+
+  </body>
+
+</html>

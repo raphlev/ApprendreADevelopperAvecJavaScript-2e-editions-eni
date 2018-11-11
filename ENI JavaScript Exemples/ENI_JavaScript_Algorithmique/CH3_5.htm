@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : CH3_5.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Calcul (et affichage) de la surface de deux cercles de rayons saisis au clavier
+ainsi que de la différence entre ces deux surfaces
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>CH3_5</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - Exercice CH3_5</h1>
+
+		<!-- Début script JavaScript -->
+		<script>
+		
+			/* Affichage du nom du script */
+			alert("Exercice CH3_5");
+
+			/* Déclaration de variables locales */
+			var rayon1, rayon2, pi, surface1, surface2, difference;
+
+			/* Initialisation des variables */
+			rayon1 = prompt("Rayon n°1 :");
+			rayon2 = prompt("Rayon n°2 :");
+			pi = 3.14;
+
+			/* Calculs */
+			surface1 = pi * rayon1 * rayon1;
+			surface2 = pi * rayon2 * rayon2;
+			difference = surface1 - surface2;
+
+			/* Affichage des résultats */
+			document.write("Surface 1 : " + surface1 + "<br />");
+			document.write("Surface 2 : " + surface2 + "<br />");
+			document.write("Différence Surface 1 - Surface 2 : " + difference);
+
+		</script>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>

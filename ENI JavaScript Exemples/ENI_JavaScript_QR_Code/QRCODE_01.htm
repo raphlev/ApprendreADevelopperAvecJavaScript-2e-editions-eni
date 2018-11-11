@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT : QRCODE_01.htm
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 01/01/2014
+DATE DE DERNIERE MODIFICATION : 01/01/2014
+OBJET : Génération d'un QR Code
+REFERENCE : http://qr-code-generator.iwwwit.com/generateur-qr-code.php
+-->
+
+<!-- Début script HTML -->
+<html>
+
+	<!-- Début entête script HTML -->
+	<head>
+
+		<!-- Balise meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!-- Titre du script HTML -->
+		<title>QRCODE_01</title>
+
+	</head>
+
+	<!-- Début section body du script HTML -->
+	<body>
+
+		<!-- Titre du traitement -->
+		<h1>Editions ENI - JavaScript - QRCODE_01</h1>
+
+		<!-- Début script JavaScript -->
+		<script type='text/javascript'>
+		
+			/* Affichage du nom du script */
+			alert("QRCODE_01");
+
+		</script>
+
+		<!-- Formulaire de demande de création du code QR correspondant à un numéro de téléphone -->
+		<!-- NB : Ne pas modifier les attributs name des différents input -->
+		<h2>QR code permettant de lancer un appel téléphonique</h2>
+		<form method="post" action="http://qr-code-generator.iwwwit.com/createur-qr-code.php">
+			Numéro de téléphone :
+			<input type="text" name="tel-num" id="tel-num" />
+			<input type="hidden" name="couleurf" class="couleurf" value="#ffffff" />
+			<input type="hidden" name="couleurp" class="couleurp" value="#000000" />
+			<input type="hidden" name="err" class="err-l" value="L" />
+			<input type="hidden" name="qrsize" class="qrsize" value="300" />
+			<input type="submit" name="sub" value="QRCodeCall" />
+		</form>
+
+		<!-- Affichage du code source -->
+		<br />
+		<br />
+		<br />
+		<center>
+			<a href="JavaScript:window.location='view-source:' + window.location"> Code source </a>
+		</center>
+
+	</body>
+
+</html>
